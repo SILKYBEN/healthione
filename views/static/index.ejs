@@ -1,0 +1,668 @@
+<!--Author: SilkyBen
+	Company: BenNetworks
+	Client: HealthiOne Initiative
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>HealthiOne Initiative</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="HealthiOne Initiative, responsive site, sochealth" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/jquery.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<!---- start-smoth-scrolling---->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+<!--end-smoth-scrolling-->
+</head>
+<!--start-header-->
+  <div class="header" id="home">
+    <div class="container">
+      <div class="head">
+      <div class="logo">
+        <a href="/"><img src="images/logo.png" alt="" /></a>
+      </div>
+	  
+      <nav class="navbar navbar-fixed-top">
+      <div class="navigation">
+         <span class="menu"></span> 
+          <ul class="navig">
+			<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+					<ul id="login-dp" class="dropdown-menu">
+						<li>
+							 <div class="row">
+									<div class="col-md-12">
+										 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+												<div class="form-group">
+													 <label class="sr-only" for="exampleInputEmail2">Email address</label>
+													 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+												</div>
+												<div class="form-group">
+													 <label class="sr-only" for="exampleInputPassword2">Password</label>
+													 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+													 <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+												</div>
+												<div class="form-group">
+													 <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+												</div>
+												<div class="checkbox">
+													 <label>
+													 <input type="checkbox"> keep me logged-in
+													 </label>
+												</div>
+										 </form>
+									</div>
+									<div class="bottom text-center">
+										New here ? <a href="/user/new"><b>Join Us</b></a>
+									</div>
+							 </div>
+						</li>
+					</ul>
+        </li>
+            <li><a href="/"  class="active">Home</a></li>
+            <li><a href="#blog" class="scroll">Blog</a></li>
+            <li><a href="#get" class="scroll">Get In Touch</a></li>
+			
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+
+      </div>
+      </nav>
+        <div class="clearfix"></div>
+      </div>
+      </div>
+    </div>  
+<body>
+
+	<!-- script-for-menu -->
+	<!-- script-for-menu -->
+		 <script>
+				$("span.menu").click(function(){
+					$(" ul.navig").slideToggle("slow" , function(){
+					});
+				});
+		 </script>
+		 <!-- script-for-menu -->
+	<!--search-scripts-->
+					<script src="js/classie.js"></script>
+					<script src="js/uisearch.js"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+	<!--//search-scripts-->
+	<!--banner-starts-->
+		<div class="banner">
+			<div class="container">
+				<div class="banner-main">
+					<div  id="top" class="callbacks_container">
+			      	<ul class="rslides" id="slider4">
+			        	<li>
+							<div class="banner-top">
+								<h1>Welcome to <span class="an"> HealthiOne Initiative</span> </h1>
+								<h2>Better Health, Greater Impact!</h2>
+								<p>Sign-up To Join US </p>
+								<div class="banner-bottom">
+									<div class="banner-left">
+										<a href="/user/new" class="get">Sign-Up</a>
+									</div>
+									<div class="banner-left">
+										<a href="#projects" class="fut">Projects</a>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="banner-top">
+								<a href="/user/new" class="get"> <h2>Do you want access to health-based career workshops for students?
+								<p>latest health news and innovations,counselling from certified HEALTH PROFESSIONALS?</p> 
+								<p>Do you want proper information about diseases and treatments from qualified <strong>MEDICAL DOCTORS</strong>? </p> </h2></a>
+								<p>Sign-up To Join US </p>
+								<div class="banner-bottom">
+									<div class="banner-left">
+										<a href="/user/new" class="get">Sign-Up</a>
+									</div>
+									<div class="banner-left">
+										<a href="#projects" class="fut">Projects</a>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="banner-top">
+								<h2>Do you want right information about physical therapies from seasoned <strong>PHYSIOTHERAPISTS</strong> online?
+								<p> Do you want assistance to do health and health-related surveys using socila platforms?</p></h2>
+								<div class="banner-bottom">
+									<div class="banner-left">
+										<a href="/user/new" class="get">Sign-Up</a>
+									</div>
+									<div class="banner-left">
+										<a href="#projects" class="fut">Projects</a>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="banner-top">
+								<h2>Do you wish to organise Health seminars but dont have qualified resource person to speak?
+								<p> Do you wish to partner or volunteer to organise and serve in health outreaches?</p></h2>
+								<div class="banner-bottom">
+									<div class="banner-left">
+										<a href="/user/new" class="get">Sign-Up</a>
+									</div>
+									<div class="banner-left">
+										<a href="#projects" class="fut">Projects</a>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</li>
+					</ul>
+			    </div>
+			  <div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+	<!--banner-ends--> 
+	<!--Slider-Starts-Here-->
+				<script src="js/responsiveslides.min.js"></script>
+			 <script>
+			    // You can also use "$(window).load(function() {"
+			    $(function () {
+			      // Slideshow 4
+			      $("#slider4").responsiveSlides({
+			        auto: true,
+			        pager: true,
+			        nav: true,
+			        speed: 500,
+			        namespace: "callbacks",
+			        before: function () {
+			          $('.events').append("<li>before event fired.</li>");
+			        },
+			        after: function () {
+			          $('.events').append("<li>after event fired.</li>");
+			        }
+			      });
+			
+			    });
+			  </script>
+			<!--End-slider-script-->
+	<!--services-starts-->
+	<div class="services" id="services">
+		<div class="container">
+			<div class="services-top">
+				<h3>Our Services</h3>
+				<span> </span>
+			</div>
+			<div class="services-bottom">
+				<div class="col-md-4 services-left">
+					<div class="service-one">
+						<img src="images/service-1.png" alt="" />
+						<h4>workshops</h4>
+						<p>We are very professional in our work. We have many talented workers in the blah blah blah. </p>
+					</div>
+				</div>
+				<div class="col-md-4 services-left">
+					<div class="service-one">
+						<img src="images/services-3.png" alt="" />
+						<h4>dont know what to write</h4>
+						<p>dont know what to writedont know what to writedont know what to writedont know what to writedont know what to writedont know what to writedont know what to writedont know what to writedont know what to writedont know what to writedont know what to writedont know what to write</p>
+					</div>
+				</div>
+				<div class="col-md-4 services-left">
+					<div class="service-one">
+						<img src="images/service-2.png" alt="" />
+						<h4>Life Building</h4>
+						<p>dont know what to writedont know what to writedont know what to writedont know what to writedont know what to writedont know what to writedont know what to writedont know what to writedont know what to writedont know what to writedont know what to writedont know what to writedont know what to write</p>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!--services-ends-->
+	<!--work-starts-->
+	<div class="work">
+		<div class="container">
+			<div class="work-top">
+				<h3>How It Works</h3>
+				<span> </span>
+			</div>
+			<div class="work-bottom">
+				<div class="col-md-6 work-left">
+					<ul>
+						<li><img src="images/crt.png" alt="" /><p><a href="#">On Page & Off Page SEO</a></p></li>
+						<li><img src="images/crt.png" alt="" /><p><a href="#">Directory Submission</a></p></li>
+						<li><img src="images/crt.png" alt="" /><p><a href="#">Social Marketing and Submission</a></p></li>
+						<li><img src="images/crt.png" alt="" /><p><a href="#">Get High PR Backlinking</a></p></li>
+						<li><img src="images/crt.png" alt="" /><p><a href="#">Get Keywords Top In Search Engine</a></p></li>
+						<li><img src="images/crt.png" alt="" /><p><a href="#">Boost Your Sales and Earning</a></p></li>
+					</ul>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!--work-ends-->
+	<!--video-ends-->
+	<div id="small-dialog5" class="mfp-hide">
+					<iframe src="#" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				</div>
+				 <script>
+						$(document).ready(function() {
+						$('.popup-with-zoom-anim').magnificPopup({
+							type: 'inline',
+							fixedContentPos: false,
+							fixedBgPos: true,
+							overflowY: 'auto',
+							closeBtnInside: true,
+							preloader: false,
+							midClick: true,
+							removalDelay: 300,
+							mainClass: 'my-mfp-zoom-in'
+						});
+																						
+						});
+				</script>								  
+			<!--fea-video-->
+			<!--pop-up-box-->
+			<script type="text/javascript" src="js/modernizr.custom.53451.js"></script>  
+			<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all">
+			<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+			<!--pop-up-box-->
+	<!--experties-starts-->
+	<div class="experties" id="experties">
+		<div class="container">
+			<div class="experties-top">
+				<h3>Experties</h3>
+				<span> </span>
+			</div>
+			<div class="experties-bottom">
+				<div class="col-md-4 experties-left">
+					<div class="every" id="circles-1"></div>
+					<h4>Link Building</h4>									
+				</div>
+				<div class="col-md-4 experties-left">
+					<div class="every" id="circles-2"></div>
+					<h4>Keywords Optimization</h4>																						
+				</div>
+				<div class="col-md-4 experties-left">
+					<div class="every" id="circles-3"></div>	
+					<h4>Social Marketing</h4>																		
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!--experties-end-->
+	<!---->
+				 <script type="text/javascript" src="js/circles.js"></script>
+					         <script>
+								var colors = [
+										['#DFDFDF', '#00ccff'], ['#DFDFDF', '#e1fd00'], ['#DFDFDF', '#ff0030']
+									];
+								for (var i = 1; i <= 6; i++) {
+									var child = document.getElementById('circles-' + i),
+										percentage = 60 + (i * 10);
+										
+									Circles.create({
+										id:         child.id,
+										percentage: percentage,
+										radius:     115,
+										width:      10,
+										number:   	percentage / 10,
+										text:       '%',
+										colors:     colors[i - 1]
+									});
+								}
+						
+				</script>
+				<!--/-->
+	
+	
+	
+	<!--team-starts-->
+	<div class="team" id="team">
+		<div class="container">
+			<div class="team-top">
+				<h3>Our Team</h3>
+				<span> </span>
+			</div>
+			<div class="team-bottom">
+				<div class="col-md-4 team-left">
+					<img src="images/team-1.jpg" alt="" />
+					<h4>Jack Clark</h4>
+					<ul>
+						<li><a href="#"><span class="fb"> </span></a></li>
+						<li><a href="#"><span class="t"> </span></a></li>
+						<li><a href="#"><span class="g"> </span></a></li>
+						<li><a href="#"><span class="in"> </span></a></li>
+					</ul>
+				</div>
+				<div class="col-md-4 team-left team-two">
+					<img src="images/team-3.jpg" alt="" />
+					<h4>Anna Jhon</h4>
+					<ul>
+						<li><a href="#"><span class="fb"> </span></a></li>
+						<li><a href="#"><span class="t"> </span></a></li>
+						<li><a href="#"><span class="g"> </span></a></li>
+						<li><a href="#"><span class="in"> </span></a></li>
+					</ul>
+				</div>
+				<div class="col-md-4 team-left team-three">
+					<img src="images/team-2.jpg" alt="" />
+					<h4>Harry Ben</h4>
+					<ul>
+						<li><a href="#"><span class="fb"> </span></a></li>
+						<li><a href="#"><span class="t"> </span></a></li>
+						<li><a href="#"><span class="g"> </span></a></li>
+						<li><a href="#"><span class="in"> </span></a></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!--team-end-->
+	
+	<!--testimonials-starts-->
+	<div class="testimonials">
+		<div class="container">
+			<div class="testimonials-top">
+				<h3>Testimonials</h3>
+				<span> </span>
+			</div>
+			<div class="testimonials-bottom">
+				<div  id="top" class="callbacks_container">
+			      	<ul class="rslides" id="slider5">
+			        	<li>
+							<div class="test-bottom">
+								<img src="images/test-1.png" alt="" />
+								<p><sup><img src="images/quote-1.png" alt="" /></sup> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel gravida leo, a aliquam lacus. Cras sagittis placerat libero, at pretium quam euismod at. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam accumsan<sub><img src="images/quote-2.png" alt="" /></sub></p>
+							</div>
+						</li>
+						<li>
+							<div class="test-bottom">
+								<img src="images/test-2.png" alt="" />
+								<p><sup><img src="images/quote-1.png" alt="" /></sup> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel gravida leo, a aliquam lacus. Cras sagittis placerat libero, at pretium quam euismod at. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam accumsan<sub><img src="images/quote-2.png" alt="" /></sub></p>
+							</div>
+						</li>
+						<li>
+							<div class="test-bottom">
+								<img src="images/test-3.png" alt="" />
+								<p><sup><img src="images/quote-1.png" alt="" /></sup> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel gravida leo, a aliquam lacus. Cras sagittis placerat libero, at pretium quam euismod at. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam accumsan<sub><img src="images/quote-2.png" alt="" /></sub></p>
+							</div>
+						</li>
+					</ul>
+			    </div>
+			  <div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!--testimonials-end-->
+	<!--Slider-Starts-Here-->
+			 <script>
+			    // You can also use "$(window).load(function() {"
+			    $(function () {
+			      // Slideshow 4
+			      $("#slider5").responsiveSlides({
+			        auto: true,
+			        pager: true,
+			        nav: false,
+			        speed: 500,
+			        namespace: "callbacks",
+			        before: function () {
+			          $('.events').append("<li>before event fired.</li>");
+			        },
+			        after: function () {
+			          $('.events').append("<li>after event fired.</li>");
+			        }
+			      });
+			
+			    });
+			  </script>
+			<!--End-slider-script-->
+	<!--project-starts-->
+	<div class="project" id="projects">
+		<div class="container">
+			<div class="project-top">
+				<h3>Recent Projects</h3>
+				<span> </span>
+			</div>
+			<div class="project-bottom">
+				<div id="portfoliolist">
+				<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
+					<div class="portfolio-wrapper">		
+						<a href="images/project-1.png" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
+							   <img src="images/project-1.png" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
+							   <p>Website Url</p>
+							   <ul>
+							   	<li><img src="images/link.png" alt="" /></li>
+							   	<li><img src="images/srh.png" alt="" /></li>
+							   	<li><img src="images/star.png" alt="" /></li>
+							   </ul>
+							   </h2>
+						</div></a>
+			        </div>
+			    </div>
+			    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
+					<div class="portfolio-wrapper">		
+						<a href="images/project-2.png" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
+							   <img src="images/project-2.png" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
+							   	<p>Website Url</p>
+							   <ul>
+							   	<li><img src="images/link.png" alt="" /></li>
+							   	<li><img src="images/srh.png" alt="" /></li>
+							   	<li><img src="images/star.png" alt="" /></li>
+							   </ul>
+							   </h2>
+						</div></a>
+			        </div>
+			    </div>
+			    <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
+					<div class="portfolio-wrapper">		
+						<a href="images/project-3.png" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
+							   <img src="images/project-3.png" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">
+							   	<p>Website Url</p>
+							   <ul>
+							   	<li><img src="images/link.png" alt="" /></li>
+							   	<li><img src="images/srh.png" alt="" /></li>
+							   	<li><img src="images/star.png" alt="" /></li>
+							   </ul>
+							   </h2>
+						</div></a>
+			        </div>
+			    </div>   
+			    <div class="clearfix"></div>    
+			</div>
+			</div>
+		</div>
+	</div>
+	<!--project-end-->
+	<link rel="stylesheet" href="css/swipebox.css">
+	<script src="js/jquery.swipebox.min.js"></script> 
+	    <script type="text/javascript">
+			jQuery(function($) {
+				$(".swipebox").swipebox();
+			});
+		</script>
+	<!-- Portfolio Ends Here -->
+	<script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+<script type="text/javascript">
+$(function () {
+	
+	var filterList = {
+	
+		init: function () {
+		
+			// MixItUp plugin
+		// http://mixitup.io
+		$('#portfoliolist').mixitup({
+			targetSelector: '.portfolio',
+			filterSelector: '.filter',
+			effects: ['fade'],
+			easing: 'snap',
+			// call the hover effect
+			onMixEnd: filterList.hoverEffect()
+		});				
+	
+	},
+	
+	hoverEffect: function () {
+	
+		// Simple parallax effect
+		$('#portfoliolist .portfolio').hover(
+			function () {
+				$(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+				$(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');				
+			},
+			function () {
+				$(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+				$(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');								
+			}		
+		);				
+	
+	}
+
+};
+
+// Run the show!
+	filterList.init();
+	
+});	
+</script>
+	<!--blog-starts-->
+	<div class="blog" id="blog">
+		<div class="container">
+			<div class="blog-top">
+				<h3>Blog</h3>
+				<span></span>
+			</div>
+			<div class="blog-bottom">
+				<div class="col-md-4 blog-left">
+					<a href="/user/blog"><img src="images/blog-1.jpg" alt="" /></a>
+					<div class="blog-text">
+						<a href="/user/blog"><h4>Social Sharing For Traffic</h4></a>
+						<span>by <a href="#">admin</a>  |  June 26, 2014</span>
+						<p>FAMILY PLANNING 2
+1. MALE CONDOMS :Condoms usually worn over the penis are great at preventing both pregnancy and STDs. If you follow the instructions and use them every time you have sex, there's very little chance of pregnancy and your chance of getting or giving an STD is much lower.</p>
+<p><a href="/user/blog">Read more >></a></p>
+If you use condoms perfectly every single time you have sex, they're 98% effective at preventing pregnancy. But people aren't perfect, so in real life condoms are about 82% effective — that means about 18 out of 100 people who use condoms as their only birth control method will get pregnant each year.
+2. FEMALE CONDOM :The female condom is a pouch that is used during intercourse to prevent pregnancy and reduce the risk of sexually transmitted diseases. It has flexible rings at each end
+If women always use the female condom correctly, 5 out of 100 will become pregnant each year.
+3. DIAPHRAGM : The diaphragm is a shallow, dome-shaped cup with a flexible rim. It is made of silicone. You insert it into the vagina.
+If women always use the diaphragm as directed, 6 out of 100 will become pregnant each year.
+4. CERVICAL CAP: The cervical cap is a silicone cup shaped like a sailor's hat. You insert it into your vagina and over your cervix
+For women who have never been pregnant or given birth vaginally, 14 out of 100 who use the cervical cap will become pregnant each year.
+For women who have given birth vaginally, 29 out of 100 who use the cervical cap will become pregnant each year.
+5. INTRAUTERINE DEVICE :They are small, "T-shaped" devices made of flexible plastic. A health care provider inserts an IUD into a woman's uterus to prevent pregnancy.
+IUDs are one of the most effective forms of birth control available. Less than 1 out of 100 women will get pregnant each year if they use an IUD.
+It can be used as emergency birth control, to prevent pregnancy after unprotected intercourse.
+Culled from Planned Parenthood</p>
+					</div>
+				</div>
+				<div class="col-md-4 blog-left">
+					<a href="/user/blog"><img src="images/blog-2.jpg" alt="" /></a>
+					<div class="blog-text">
+						<a href="/user/blog"><h4>Ecommerce Marketing</h4></a>
+						<span>by <a href="#">admin</a>  |  June 26, 2014</span>
+						<p>Social Sharing is the best way to get more traffic. You can share your posting on the top social sharing sites. If you have a shop you can share your products on Social websites for Ecommerce Marketing.</p>
+					</div>
+				</div>
+				<div class="col-md-4 blog-left">
+					<a href="/user/blog"><img src="images/blog-3.jpg" alt="" /></a>
+					<div class="blog-text">
+						<a href="/user/blog"><h4>How to Get High Page Rank</h4></a>
+						<span>by <a href="#">admin</a>  |  June 26, 2014</span>
+						<p>Social Sharing is the best way to get more traffic. You can share your posting on the top social sharing sites. If you have a shop you can share your products on Social websites for Ecommerce Marketing.</p>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!--blog-end-->
+	
+	<!--customers-starts-->
+	<div class="customers">
+		<div class="container">
+			<div class="customers-top">
+				<h3>Customers</h3>
+				<span></span>
+				<div class="customers-bottom">
+					<ul>
+						<li><a href="#"><img src="images/custom-1.png" alt="" /></a></li>
+						<li><a href="#"><img src="images/custom-2.png" alt="" /></a></li>
+						<li><a href="#"><img src="images/custom-3.png" alt="" /></a></li>
+						<li><a href="#"><img src="images/custom-4.png" alt="" /></a></li>
+						<li><a href="#"><img src="images/custom-5.png" alt="" /></a></li>
+						<li><a href="#"><img src="images/custom-6.png" alt="" /></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--customers-end-->
+	<!--contact-starts-->
+	<div class="contact" id="get">
+		<div class="container">
+			<div class="contact-top">
+				<h3>Contact</h3>
+				<span> </span>
+			</div>
+			<div class="contact-bottom">
+				<div class="col-md-6 contact-left">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3387.1816329715443!2d116.165484!3d-31.901661999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a32c445d61f42d9%3A0x19f05198e82d3d32!2sLittle+Caesars+Pizzeria!5e0!3m2!1sen!2sin!4v1430720025747" frameborder="0" style="border:0"></iframe>
+					<ul>
+						<li><span class="address"> </span>
+						<p>Waiting for popsy, 
+						   <label>HealthiOne, popsy, Road</label>
+                            Ibadan, Nigeria
+                        </p>
+                        </li>
+                        <li><span class="phone"> </span>
+						<p>(+234)8149240238</p>
+                        </li>
+                        <li><span class="msg"> </span>
+						<p><a href="ebuson4real@gmail.com">ebuson4real@gmail.com</a></p>
+                        </li>
+					</ul>
+				</div>
+				<div class="col-md-6 contact-right">
+					<input type="text" value="Your Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Name';}" />
+					<input type="text" value="Your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Email';}" />
+					<input type="text" value="Website" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Website';}" />
+					<textarea value="Message:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+					 <div class="s-btn">
+						<form>
+							<input type="submit" value="Send">
+						</form>
+				     </div>	
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!--contact-end-->
+				 
+</body>
+</html>

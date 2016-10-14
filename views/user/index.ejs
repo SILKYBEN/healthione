@@ -1,0 +1,58 @@
+
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+<H1 class="text-center"> <img src="/images/logo.png" alt="" /> </H1>
+<hr>
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-box no-header clearfix">
+                <div class="main-box-body clearfix">
+                    <div class="table-responsive">
+                        <table class="table table-hover user-list">
+                            <thead>
+                                <tr>
+                                <th class="text-center"><span> Name</span></th>
+                                <th><span>Created</span></th>
+                                <th class="text-center"><span>Occupation</span></th>
+                                <th class="text-center"><span>Email</span></th>
+                                <th class="text-center"><span>Phone</span></th>
+                                <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                            <% _.each(users, function(user) { %>
+                                <tr>
+                                    <td>
+                                        <img src="http://bootdey.com/img/Content/user_1.jpg" alt="">
+                                        <a href="#" class="user-link"><%= user.name %> </a>
+                                        <span class="user-subhead">Member</span>
+                                    </td>
+                                    <td><%= user.createdAt %></td>
+                                    <td class="text-center">
+                                        <span class="label label-default"><%= user.occupation %></span>
+                                    </td>
+                                    <td>
+                                        <a href="#"><%= user.email %></a>
+                                    </td>
+                                    <td><a href="#" class="user-link"><%= user.phone %></a></td>
+                                    <td><a href=" /user/show/ <%= user.id %> " class="btn btn-sm btn-primary">Show</a></td>
+                                        <td><a href=" /user/edit/ <%= user.id %> " class="btn btn-sm btn-warning">Edit</a></td>
+                                    <td style="width: 20%;">
+                                        
+                                        <form action=" /user/destroy/ <%= user.id %> " method="POST">
+                                        <input type="hidden" name="_method" value="Delete" />
+                                        <input type="submit" value="Delete" class="btn btn-sm btn-danger" />
+                                        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                                        </form>
+                                    </td>
+                                </tr>
+                                <%})%>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
