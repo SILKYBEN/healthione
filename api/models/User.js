@@ -7,7 +7,7 @@
 
 module.exports = {
 
-  schema:true,
+  //schema:true,
 
   attributes: {
 
@@ -27,24 +27,53 @@ module.exports = {
   		required: true,
   		unique: true
   	},
-  	encrptedPassword:{
+    admin:{
+      type: 'boolean',
+      defaultsTo: false
+      
+    },
+  	encryptedPassword:{
   		type: 'string'
-  	}
+  	},
 
 
 
       // returns 'The morning is upon us'
 
-  	// toJSON: function() {
+  	toJSON: function() {
 
-  	// var obj=this.toObject();
-  	// // 	delete obj.password;
-  	// // 	delete obj.confirm;
-  	// // 	delete obj.encrptedPassword;
-  	// // 	delete obj._csrf;
-  	// 	return obj;
-  	//  }
+  	var obj=this.toObject();
+  		delete obj.password;
+  		delete obj.confirm;
+      delete obj.encrptedPassword;
+  		delete obj._csrf;
+  		return obj;
+  	 } 
 
+
+
+
+
+  },
+
+  
+
+  beforeCreate: function(values, next){
+    if (!values.password || values.password != values.confirm){
+      return next({err: ["PASSWORD DOESNT MATCH CONFIRMATION."]});
+    }
+    var bcrypts = require('bcryptjs');
+
+    bcrypts.hash(values.password,10, function passwordEncrypted(err,encryptedPassword){
+      if (err) return next(err);
+      values.encryptedPassword=encryptedPassword;
+      //user.encryptedPassword=values.encrptedPassword;
+
+      next();
+    });
   }
+  
+
+
 };
 

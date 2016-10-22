@@ -4,11 +4,14 @@
  * @description :: Server-side logic for managing users
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-
+//var Emailaddresses = require('machinepack-emailaddresses');
+//var Passwords = require('machinepack-passwords');
 module.exports = {
 	
-	'new': function(req,res){
+	'new': function(req, res){
+		//res.locals.flash = _.clone(req.session.flash);
 		res.view();
+		//req.session.flash = {};
 		
 		},
 
@@ -17,21 +20,92 @@ module.exports = {
 		
 		},
 
+
+
 	 create : function(req, res, next){
 
 	 	User.create(req.params.all(), function userCreated(err, user) {
-			if (err) return next(err);
+
+// 	 		if (err) {
+// console.log('the error is: ', err.invalidAttributes);
+// if (err.invalidAttributes && err.invalidAttributes.email &&
+// err.invalidAttributes.email[0] && err.invalidAttributes.email[0].rule ==='unique') {
+// return res.send(409, 'Email address is already taken by another user, please try again.');
+// }
+// if (err.invalidAttributes && err.invalidAttributes.username &&
+// err.invalidAttributes.username[0] && err.invalidAttributes.username[0].rule ==='unique') {
+// return res.send(409, 'Username is already taken by another user, please try again.');
+// 	}
+// }
+
+	 		if (err) {
+	 		 	console.log(err);
+	 		 	req.session.flash = {
+
+	 		 		err:err
+	 		 	}
+
+	 		 	return res.redirect('/user/new');
+	 		 }
+			//if (err) return next(err);
+
+	 	// 	Emailaddresses.validate({
+			// 	string: req.param('email'), 
+			// 	}).exec({
+			// 	// An unexpected error occurred.
+			// 	error: function(err) {
+			// 	return res.serverError(err); //#C
+			// 	},
+			// 	// The provided string is not an email address.
+			// 	invalid: function() {
+			// 	return res.badRequest('Doesnt look like an email address to me!'); //#D
+			// 	},
+			// 		success: function() {
+				//res.json(user);
+
+			req.session.authenticated=true;
+			req.session.User = user;
+
+
+
+			res.redirect('/');
+			//req.session.flash = {};
+
+
+			// 			// 		var user = { //#C
+			// 			// 			id: req.param('id'),
+			// 			// 			name: req.param('name'),
+			// 			// 			phone: req.param('phone'),
+			// 			// 			email: req.param('email'),
+			// 			// 			occupation: req.param('occupation'),
+			// 			// 			password: req.param('password')
+			// 			// 			};
+			// 			//return res.json(user);
+						
+						
+			 			
+			// 			//  return res.redirect('/user/show/'+ user.id);
+
+			// 		}
+
+			// 	// OK.
+
 			
-			//res.json(user);
-			res.redirect('/user/show/'+user.id);
+
+
+			
+			// //res.json(user);
+			
 		
 
 	
-		});
+			// 	});
+			});
 	},
 
 	index : function(req, res, next){
 
+				
 	 	User.find (function foundUsers(err, users) {
 			if (err) return next(err);
 			//if (!user) return next();

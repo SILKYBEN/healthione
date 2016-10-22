@@ -113,6 +113,13 @@
                     <h1 class="title">Sign-up Form</h1>
                   </div>
               </div>
+              <% if (flash && flash.err){ %>
+              <ul class="alert alert-success">
+                <% Object.keys(flash.err).forEach(function(error) { %>
+                <li><%- JSON.stringify(flash.err[error]) %></li>
+                <% }) %>
+              </ul>
+              <% } %>
               
         <div class="main-login main-center">
           <form id="myform" class="form-horizontal" data-toggle="validator" method="post" action="/user/create" >            
