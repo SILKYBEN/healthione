@@ -280,6 +280,16 @@ input::-webkit-input-placeholder {
   padding: 10px 0 20px;
   border-bottom: 1px solid #f1f1f1;
 }
+.forum-content{
+  margin-bottom: 20px;
+    border:1px solid #177bbb;
+    padding: 22px 0px;
+    border-radius: 0.3em;
+    -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  -o-border-radius: 0.3em;
+  -ms-border-radius: 0.3em;
+}
 .views-number {
   font-size: 24px;
   line-height: 18px;
@@ -327,6 +337,7 @@ a.forum-item-title:hover {
 }
 .forum-item.active .fa {
   color: #1ab394;
+  
 }
 .forum-item.active a.forum-item-title {
   color: #1ab394;

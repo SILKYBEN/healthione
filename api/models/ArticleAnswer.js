@@ -1,28 +1,31 @@
 /**
- * Blog.js
+ * ArticleAnswer.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
 module.exports = {
-  autoCreatedAt: false,
-  autoUpdatedAt: false,
+
+	  autoCreatedAt: false,
+  	autoUpdatedAt: false,
 
   attributes: {
 
-  	title: {
-  		type: 'string',
-  		required: true
-  	},
-  	description:{
+  	nick: {
+
   		type: 'string'
   	},
-  	nick:{
-			type: 'string'
-			// required: true
-  		
+    // owner: {
+
+    //   type: 'json'
+    // },
+
+  	questionId:{
+
+  		type: 'string'
   	},
+
   	dateCreated:{
       type: 'string',
         // defaultsTo: function() {return new Date();}
@@ -48,39 +51,31 @@ module.exports = {
 }
   		// type: 'string'
   	},
-    creator: {
-      model: 'user'
+  owner: {
+      model: 'article'
     },
-    answers: {
-      collection: 'answer',
-      via:'owner'
-    },
-    admin:{
-      type: 'boolean',
-      defaultsTo: false
-      
-    }, 
 
-    beforeCreate: function(values, next){
-    if (req.session.user){
-      values.nick=req.session.user.nick;
-      
-    } else {
+  	comment:{
 
-      res.send ('Must be Logged In');
-    }
+  		type: 'string'
+  	}
+
+  }
+
+  //   afterCreate: function(values, next){
+  //   if (req.session.answer){
+  //     // values.nick=req.session.user.nick;
+  //     values.questionId = req.session.answer.creator;
+  //     next();
+  //   } else {
+
+  //     res.send ("before i create error in answer model");
+  //   }
    
-  }
- //  	reply: [
-	// 	{
-	// 	user:'string',
-	// 	message: 'string',
-	// 	dateCreated: 'string'
-	// 	}
-	// ]
+  // }
 
-  }
+
+
+  // }
 };
-
-
 

@@ -35,29 +35,32 @@
   <div class="header" id="home">
     <div class="container">
       <div class="head">
-      <div class="logo">
+      <nav class= "navbar-fixed-top ">
         <a href="/"><img src="/images/logo.png" alt="" /></a>
-      </div>
-    
+
+      </nav>
       <nav class="navbar navbar-fixed-top">
       <div class="navigation">
          <span class="menu"></span> 
           <ul class="navig">
+
+
+          <% if (!session.authenticated) { %>
       <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
           <ul id="login-dp" class="dropdown-menu">
             <li>
                <div class="row">
                   <div class="col-md-12">
-                     <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                     <form class="form" role="form"  method="post" action="/session/create" accept-charset="UTF-8" id="login-nav">
                         <div class="form-group">
-                           <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                           <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                           <label class="sr-only" for="email">Email address</label>
+                           <input type="email" class="form-control" name="email" id= "email" placeholder="Email address" required>
                         </div>
                         <div class="form-group">
-                           <label class="sr-only" for="exampleInputPassword2">Password</label>
-                           <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                           <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                           <label class="sr-only" for="password">Password</label>
+                           <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                           <div class="help-block text-right"><a href="#">Forget the password ?</a></div>
                         </div>
                         <div class="form-group">
                            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
@@ -67,6 +70,7 @@
                            <input type="checkbox"> keep me logged-in
                            </label>
                         </div>
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
                      </form>
                   </div>
                   <div class="bottom text-center">
@@ -76,18 +80,35 @@
             </li>
           </ul>
         </li>
+        <% } %>
+        <% if ( session.authenticated ) { %>
+          <li><a href="/user/show/<%= session.User.id %>"  class="active"><%= session.User.name %></a></li>
+        <% }%>
+        <% if ( session.authenticated && session.User.admin) { %>
+          <li><a href="/user"  class="active"> User Administration </a></li>
+          <li><a href="/article"  class="active"> Articles </a></li>
+        <% }%>
             <li><a href="/"  class="active">Home</a></li>
-            <li><a href="/user/blog">Blog</a></li>
-            <li><a href="get" class="scroll">Get In Touch</a></li>
-      
-          </ul> 
+            <li><a href="#blog" class="scroll">Blog</a></li>
+            <li><a href="#get" class="scroll">Get In Touch</a></li>
+
+            <% if ( session.authenticated ) { %>
+          <li><a href="/session/destroy"  class=""> Sign Out </a></li>
+        <% }%>
+    
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
 
       </div>
       </nav>
         <div class="clearfix"></div>
       </div>
       </div>
-    </div>  
+    </div> 
+    <!-- Header Ends -->
     
     <body>
     <!-- script-for-menu -->
@@ -110,7 +131,7 @@
       <div class="row main">
         <div class="panel-heading">
                  <div class="panel-title text-center">
-                    <h1 class="title">Sign-up Form</h1>
+                    <h1 class="title"> Create New Article </h1>
                   </div>
               </div>
               <% if (flash && flash.err){ %>
@@ -122,84 +143,30 @@
               <% } %>
               
         <div class="main-login main-center">
-          <form id="myform" class="form-horizontal" data-toggle="validator" method="post" action="/user/create" >            
+          <form id="myform" class="form-horizontal" data-toggle="validator" method="post" action="/article/create" >            
             <div class="form-group">
-              <label for="name" class="cols-sm-2 control-label">Your Name</label>
+              <label for="title" class="cols-sm-2 control-label"> Title </label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Full Name"/>
+                  <input type="text" class="form-control" name="title" id="title"  placeholder="Enter Your Article Title"/>
                 </div>
               </div>
             </div>
-            <div class="form-group has-feedback">
-              <label for="occupation" class="cols-sm-2 control-label">Your Occupation</label>
+            <div class="form-group">
+              <label for="occupation" class="cols-sm-2 control-label"> Description </label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="occupation" id="occupation"  placeholder="Enter your occupation" required/>
-                </div>
-                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                <div class="help-block with-errors">Kindly fill in you occupation</div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="phone" class="cols-sm-2 control-label">Phone Number</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your phone Number"/>
+                  <textarea name="description" id="description" placeholder="Description" data-error="Please Explain your Question " required></textarea>
                 </div>
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="email" class="cols-sm-2 control-label">Your Email</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Enter your Email" data-error="that email address is invalid" required />
-                </div>
-                <div class="help-block with-errors"></div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="nick" class="cols-sm-2 control-label">User Name</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="nick" id="nick"  placeholder="Enter your User Name"/>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="form-group">
-              <label for="password" class="cols-sm-2 control-label">Password</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                  <input type="password" data-minlength="6" class="form-control" name="password" id="password"  placeholder="Enter your Password" required />
-                </div>
-                <div class="help-block">Minimum of 6 characters</div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                  <input type="password" class="form-control" name="confirm" id="confirm" data-match="#password" data-match-error="Whoops, these don't match" placeholder="Confirm your Password" required />
-                </div>
-              </div>
-            </div>
-
+            
             <div class="form-group ">
-              <input type= "submit"  class="btn btn-primary btn-lg btn-block login-button" value="Register" />
+              <input type= "submit"  class="btn btn-primary btn-lg btn-block login-button" value="Next" />
             </div>
-            <input type="hidden" name="_csrf" value="<%= _csrf %>" />
             
           </form>
         </div>

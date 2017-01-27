@@ -1,13 +1,14 @@
 /**
- * Blog.js
+ * Article.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
 module.exports = {
-  autoCreatedAt: false,
-  autoUpdatedAt: false,
+	
+	 autoCreatedAt: false,
+  	autoUpdatedAt: false,
 
   attributes: {
 
@@ -15,13 +16,31 @@ module.exports = {
   		type: 'string',
   		required: true
   	},
+
+    nick:{
+      type: 'string',
+      required: true
+    },
+    creator: {
+      model: 'user'
+    },
+    articleAnswers: {
+      collection: 'articleAnswer',
+      via:'owner'
+    },
+
   	description:{
   		type: 'string'
   	},
-  	nick:{
-			type: 'string'
-			// required: true
-  		
+  	avatarUrl:{
+  		type: 'string'
+  	},
+  	fd:{
+  		type: 'string'
+  	},
+  	
+  	imageName:{
+  		type: 'string'
   	},
   	dateCreated:{
       type: 'string',
@@ -47,40 +66,8 @@ module.exports = {
   
 }
   		// type: 'string'
-  	},
-    creator: {
-      model: 'user'
-    },
-    answers: {
-      collection: 'answer',
-      via:'owner'
-    },
-    admin:{
-      type: 'boolean',
-      defaultsTo: false
-      
-    }, 
-
-    beforeCreate: function(values, next){
-    if (req.session.user){
-      values.nick=req.session.user.nick;
-      
-    } else {
-
-      res.send ('Must be Logged In');
-    }
-   
-  }
- //  	reply: [
-	// 	{
-	// 	user:'string',
-	// 	message: 'string',
-	// 	dateCreated: 'string'
-	// 	}
-	// ]
+  	}
 
   }
 };
-
-
 

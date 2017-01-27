@@ -1,0 +1,23 @@
+
+
+
+
+
+<div>
+<% _.each(answer, function(answer) { %>
+<h1><%= answer.id %></h1>
+<h3>description: <%= answer.comment %></h3>
+<h3>date tinz: <%= answer.dateCreated %></h3>
+
+
+
+<form action="/blog/show">
+
+</form>
+
+<a class="btn btn-meduim btn-primary" href="/answer/ <%= req.session.Blog.id %>"> Answer </a>
+
+<%})%>
+
+</div>
+

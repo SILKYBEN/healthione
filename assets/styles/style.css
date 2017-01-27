@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 html, body{
     font-size: 100%;
-	background:	#fff;
+	background:	#d3d3d3;
 	font-family: 'Titillium Web', sans-serif;
 }
 body a{
@@ -21,9 +21,18 @@ body a{
 h1,h2,h3,h4,h5,h6{
 	margin:0;			   
 }
-p{
+p {
 	margin:0;
+  white-space: nowrap;
+  overflow: hidden;
 }
+.overflow-ellipsis {
+  text-overflow: ellipsis;
+}
+.overflow-visible {
+  white-space: initial;
+}
+
 ul,label{
 	margin:0;
 	padding:0;
@@ -395,6 +404,52 @@ ul.navig li:nth-of-type(3) {
 	-moz-transition: 0.5s all ease;
 	-o-transition: 0.5s all ease;
 	-ms-transition: 0.5s all ease;
+}
+.banner-centre{
+  width:50%;
+  float:center;
+  text-align:right;
+}
+.banner-centre:nth-child(2){
+  text-align:left;
+}
+.banner-centre a.get{
+  background:#00ccff;
+  border: 2px solid #fff;
+}
+.banner-centre a.fut{
+  background: #ff0030;
+  border: 2px solid #ff0030;
+}
+.banner-centre a {
+    color: #fff;
+    font-size: 27px;
+    font-weight: 300;
+    padding: 9px 55px;
+    margin:0 20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+}
+.banner-centre a.get:hover{
+  background: #ff0030;
+  border: 2px solid #ff0030;
+  transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;
+}
+.banner-centre a.fut:hover{
+  background: #00ccff;
+  border: 2px solid #fff;
+  transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;
 }
 /*------------------ Slider Part starts Here----------*/
 .slider{
@@ -1533,6 +1588,8 @@ p.m_5 {
 /*---------------*/
 /*--project-ends*/
 /*--blog-starts--*/
+
+
 .blog{
 	padding:6em 0px;
 	background:#eeeeee;
@@ -1545,6 +1602,7 @@ p.m_5 {
 }
 .blog-left img{
 	width:100%;
+  
 }
 .blog-text {
   	background: #fff;

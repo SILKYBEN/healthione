@@ -15,6 +15,12 @@ module.exports = {
   		type: 'string',
   		required: true
   	},
+
+    nick:{
+      type: 'string',
+      required: true
+    },
+
   	occupation:{
   		type: 'string'
   	},
@@ -24,12 +30,25 @@ module.exports = {
   	email:{
   		type: 'string',
   		email: true,
-  		required: true,
+  		required: true, 
   		unique: true
   	},
+    // answers:{
+    //   type: 'json'
+    // },
     admin:{
       type: 'boolean',
       defaultsTo: false
+      
+    },
+    blogs:{
+      collection: 'blog'
+      // via : 'user'
+      
+    },
+     articles:{
+      collection: 'article'
+      // via : 'user'
       
     },
   	encryptedPassword:{

@@ -34,6 +34,9 @@ module.exports.routes = {
 
   '/': {
     view: 'static/index'
+  },
+  '/upload-file':{
+    view: 'article/uploadFile'  // view 'uploadfile' in views directory will loaded automatically
   }
   // '/blog': {
   //   view: 'static/blog'
