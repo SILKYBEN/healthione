@@ -54,11 +54,7 @@ module.exports = {
   owner: {
       model: 'blog'
     },
-  articleOwner: {
-      model: 'article'
-    },
-
-  	comment:{
+   	comment:{
 
   		type: 'string'
   	}

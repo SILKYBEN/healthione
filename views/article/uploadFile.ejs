@@ -1,6 +1,30 @@
-<form id="uploadForm"
+<!-- <form id="uploadForm"
       enctype="multipart/form-data"
       action="/article/newUpload" method="post">
     	<input type="file" name="uploadFile" />
     	<input type="submit" value="submit"/>
+</form> -->
+
+
+<form id="uploadForm"
+      enctype="multipart/form-data"
+      action="/article/newUpload" method="post">
+<div class="container">
+<div class="col-md-6">
+    <div class="form-group">
+        <label>Upload Image</label>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <span class="btn btn-default btn-file">
+                    Browse… <input type="file" name="uploadFile" id="imgInp"/>
+                </span>
+            </span>
+            <input type="text" class="form-control" readonly>
+        </div>
+        <img id='img-upload'/>
+    </div>
+    <input type="submit" value="submit"/>
+</div>
+</div>
 </form>
+

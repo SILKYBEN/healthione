@@ -303,7 +303,7 @@ module.exports = {
 
 										Article.findOne({
 											id: createdArticle.id
-										}).populate('articleCreator').exec(function (err, article){
+										}).populate('creator').exec(function (err, article){
 
 											if (err) return res.negotiate(err);
 

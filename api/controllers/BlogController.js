@@ -120,7 +120,7 @@ module.exports = {
 		// Blog.find (function foundPost(err, blog) {
 
 
-			Blog.find(req.params.all()).sort('dateCreated DESC').exec(function foundPost(err, blog){
+			Blog.find(req.params.all()).sort('dateCreated DESC').populate('answers').populate('creator').exec(function foundPost(err, blog){
 	
 			if (err) return next(err);
 
@@ -128,6 +128,38 @@ module.exports = {
 
 			req.session.Blog = blog;
 			console.log('blog own session:',blog);
+
+				Answer.find({
+
+											where: { questionId: req.session.Blog.id}
+
+											}).populate('owner').exec(function (err, answer){
+
+											if (err) return res.negotiate(err);
+
+											req.session.Answer = answer;
+
+
+
+											console.log('answer: ', answer);
+											// console.log('single creator nick:',blog.creator.nick);
+
+											console.log('single answers:',blog.answers);
+
+											// return answer;
+
+											
+
+											// console.log('new single answers:',answer.comment);
+											// return res.json({id: createdAnswer.id});
+ 
+					        	
+			
+			return res.view({
+				blog:blog,
+				answer:answer
+				});
+			});
 
 			// req.session.Blog=blog;
 			// var detail = {
@@ -140,14 +172,14 @@ module.exports = {
 			//var header1 = Welcome to Ask Health Experts
 
 
-			res.view({
-				blog:blog
-				// user:user
+			// res.view({
+			// 	blog:blog
+			// 	// user:user
 			});
 		//res.locals.flash = _.clone(req.session.flash);
 		//res.view();
 
-		});
+		// });
 		//req.session.flash = {};
 		
 		},
