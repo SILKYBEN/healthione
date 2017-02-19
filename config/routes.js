@@ -32,9 +32,11 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'static/index'
-  },
+  '/': 'StaticController.index',
+
+  // '/': {
+  //   view: 'static/index'
+  // },
   '/upload-file':{
     view: 'article/uploadFile'  // view 'uploadfile' in views directory will loaded automatically
   }

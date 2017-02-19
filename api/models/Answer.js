@@ -25,6 +25,10 @@ module.exports = {
 
   		type: 'string'
   	},
+    verified: {
+      type: 'boolean',
+      defaultsTo: false
+    },
 
   	dateCreated:{
       type: 'string',
@@ -59,6 +63,21 @@ module.exports = {
   		type: 'string'
   	}
 
+  },
+
+   beforeValidate: function(values,next){
+    if (typeof values.verified !== 'undefined') {
+      if (values.verified === 'unchecked') {
+          values.verified = false;
+        } else if (values.verified[1] === 'on') {
+          values.verified=true;
+        }
+
+
+      
+    } 
+
+    next();
   }
 
   //   afterCreate: function(values, next){

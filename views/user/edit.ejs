@@ -39,27 +39,30 @@
       <div class="head">
       <nav class= "navbar-fixed-top ">
         <a href="/"><img src="/images/logo.png" alt="" /></a>
+
       </nav>
-    
       <nav class="navbar navbar-fixed-top">
       <div class="navigation">
          <span class="menu"></span> 
           <ul class="navig">
+
+
+          <% if (!session.authenticated) { %>
       <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
           <ul id="login-dp" class="dropdown-menu">
             <li>
                <div class="row">
                   <div class="col-md-12">
-                     <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                     <form class="form" role="form"  method="post" action="/session/create" accept-charset="UTF-8" id="login-nav">
                         <div class="form-group">
-                           <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                           <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                           <label class="sr-only" for="email">Email address</label>
+                           <input type="email" class="form-control" name="email" id= "email" placeholder="Email address" required>
                         </div>
                         <div class="form-group">
-                           <label class="sr-only" for="exampleInputPassword2">Password</label>
-                           <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                           <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                           <label class="sr-only" for="password">Password</label>
+                           <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                           <div class="help-block text-right"><a href="#">Forget the password ?</a></div>
                         </div>
                         <div class="form-group">
                            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
@@ -79,10 +82,32 @@
             </li>
           </ul>
         </li>
-            <li><a href="/"  class="active">Home</a></li>
+        <% } %>
+
+        <% if (session.authenticated) { %>
+        
+        
+          <li><a href="/user/show/<%= session.User.id %>"  class="active"><%= session.User.name %></a></li>
+        <% } %>
+        <% if ( session.authenticated && session.User.admin) { %>
+          <li><a href="/user" > User Administration </a></li>
+          <!-- <li><a href="/article"  class="active"> Articles </a></li> -->
+          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Articles</b> <span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="/article">View Articles</a></li>
+          <li><a href="/article/newArticle">Add Article</a></li>
+          
+        </ul>
+      </li>
+        <% } %>
+            <li><a href="/"  >Home</a></li>
             <li><a href="#blog" class="scroll">Blog</a></li>
             <li><a href="#get" class="scroll">Get In Touch</a></li>
-      
+
+            <% if ( session.authenticated ) { %>
+          <li><a href="/session/destroy"  class=""> Sign Out </a></li>
+        <% } %>
+    
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -94,7 +119,8 @@
         <div class="clearfix"></div>
       </div>
       </div>
-    </div>  
+    </div> 
+    <!-- Header Ends -->
 <body>
 
   <!-- script-for-menu -->
@@ -141,6 +167,25 @@
                 </div>
                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                 <div class="help-block with-errors">Kindly fill in you occupation</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <label for="gender" class="cols-sm-1 control-label">Sex</label>
+                    <div class="col-sm-11">                               
+                          <div class="input-group">
+                                <label class="radio-inline"> <input type="radio" name="gender" id="gender" value= "male"> Male </label>
+                                <label class="radio-inline"> <input type="radio" name="gender" id="gender" value="female"> Female </label>
+                            </div>
+                    </div>
+              </div>
+              <div class="form-group">
+              <label for="age" class="cols-sm-2 control-label">Select Birth Date</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                  <input type="date" class="form-control" name="age" id="age"/>
+                </div>
               </div>
             </div>
 
@@ -195,9 +240,30 @@
                 </div>
               </div>
             </div>
+            <% if ( session.authenticated && session.User.admin ){ %>
+              <% if (user.admin) { %>
+                <input type="hidden" name="admin" value= "unchecked">
+                <label class="checkbox"><input type="checkbox" name="admin" checked > Admin </label>
+              
+              <% } else { %>
+                <input type="hidden" name="admin" value= "unchecked">
+                <label class="checkbox"><input type="checkbox" name="admin"> Admin </label>
+                
+              <% }%>
+              <% if (user.moderator) { %>
+                <input type="hidden" name="moderator" value= "unchecked">
+                <label class="checkbox"><input type="checkbox" name="moderator" checked > Moderator </label>
+              
+              <% } else { %>
+                <input type="hidden" name="moderator" value= "unchecked">
+                <label class="checkbox"><input type="checkbox" name="moderator"> Moderator </label>
+                
+              <% }%>
+            <% } %>
+
 
             <div class="form-group ">
-              <input type= "submit"  class="btn btn-primary btn-lg btn-block login-button" value="Register" />
+              <input type= "submit"  class="btn btn-primary btn-lg btn-block login-button" value="Update" />
             </div>
             <input type="hidden" name="_csrf" value="<%= _csrf %>" />
             

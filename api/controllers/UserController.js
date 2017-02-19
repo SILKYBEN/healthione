@@ -41,6 +41,8 @@ module.exports = {
 			req.session.authenticated=true;
 			req.session.User = user;
 
+			
+
 
 
 			res.redirect('/');
@@ -84,6 +86,7 @@ module.exports = {
 	 	User.find (function foundUsers(err, users) {
 			if (err) return next(err);
 			req.session.authenticated=true;
+			// req.session.User = user;
 			//if (!user) return next();
 			res.view({
 				users:users
@@ -99,6 +102,8 @@ module.exports = {
 	edit: function(req,res,next){
 		User.findOne(req.param('id'),function foundUser(err,user){
 			if (err) return next(err); 
+			req.session.authenticated=true;
+			// req.session.User = user;
 			if (!user) return next();
 			res.view({
 				user:user
@@ -109,6 +114,7 @@ module.exports = {
 	update: function(req,res,next){
 		User.update(req.param('id'),req.params.all(),function userUpdated(err){
 			if (err){
+				console.log(err);
 			 return res.redirect('/user/edit/'+ req.param('id')); 
 			}
 			
@@ -134,6 +140,7 @@ module.exports = {
 			if (err) return next(err); 
 			if (!user) return next();
 			req.session.authenticated=true;
+			
 			res.view({
 				user:user
 			});

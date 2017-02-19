@@ -27,6 +27,15 @@ module.exports.policies = {
   ***************************************************************************/
 
    '*': 'flash',
+
+   
+   article:{
+      'newArticle': "admin",
+      'newUpload' : "admin",
+      'singleArticle':"flash",
+      '*'         : "admin"
+
+   },
    user : {
     'new' : "flash",
     create : "flash",

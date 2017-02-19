@@ -33,6 +33,7 @@ html, body{
     font-size: 100%;
 	background:	#d3d3d3;
 	font-family: 'Titillium Web', sans-serif;
+
 }
 body a{
 	transition: 0.5s all ease;
@@ -786,6 +787,75 @@ ul.callbacks_tabs.callbacks2_tabs {
   width: 90%;
 }
 /*--services-ends*/
+
+/*--servicess-starts--*/
+.servicess{
+  padding:6em 0px;
+  background:#00ccff;
+}
+.servicess-top{
+  text-align:center;
+}
+.servicess-top h3,.work-top h3,
+.experties-top h3,.analyze-top h3,
+.pricing-top h3,.taril-text h3,
+.team-top h3,.features-top h3,
+.testimonials-top h3,.project-top h3,
+.blog-top h3,.progress-top h3,
+.customers-top h3,.contact-top h3{
+  color:#282828;
+  font-size:36px;
+  font-weight:400;
+  margin:0;
+}
+.servicess-top span,.pricing-top span,
+.testimonials-top span,.customers-top span{
+  background: #ff0030;
+}
+.servicess-top span,.work-top span,
+.experties-top span,.pricing-top span,
+.team-top span,.features-top span,
+.testimonials-top span,.project-top span,
+.blog-top span,.progress-top span,
+.customers-top span,.contact-top span{
+    width: 4%;
+    height: 4px;
+    display: block;
+    margin: 15px auto 0;
+}
+.servicess-bottom {
+    margin-top: 12%;
+    position:relative;
+}
+.services-one img {
+    position: absolute;
+    top: -56px;
+    left: 34.5%;
+}
+.services-one {
+    background: #fff;
+    padding: 4.5em 0px 3em 0px;
+    text-align: center;
+}
+.services-one h4 {
+  font-size: 24px;
+  color: #282828;
+  font-weight: 600;
+  margin: 0;
+  padding-bottom: 14px;
+  width: 100%;
+  border-bottom: 2px solid #e4e4e4;
+}
+.services-one p {
+  color: #626161;
+  font-weight: 600;
+  line-height: 1.8em;
+  margin: 15px auto 0;
+  font-size: 14px;
+  width: 90%;
+}
+/*--services-ends*/
+
 /*--work-starts--*/
 .work{
 	padding:5em 0px;
@@ -1780,7 +1850,7 @@ h3.sngl {
 }
 .comments-main {
   	margin-bottom: 20px;
-  	border:1px solid #177bbb;
+  	/*border:1px solid #177bbb;*/
   	padding: 22px 0px;
   	border-radius: 0.3em;
   	-webkit-border-radius: 0.3em;
@@ -1851,7 +1921,14 @@ h3.sngl {
 .cmts-main-right {
   	width: 88%;
   	float: right;
+    /*border:1px solid #177bbb;*/
   	padding: 0 15px;
+}
+.cmts-mains-right {
+    width: 88%;
+    float: right;
+    border:1px solid #177bbb;
+    padding: 15px 15px 15px 15px;
 }
 .Categories ul, .archives ul {
   	padding: 0px;
@@ -2050,7 +2127,7 @@ h3.sngl {
 /*--contact-starts--*/
 .contact{
 	padding:6em 0px;
-	background:#e1fd00;
+	background:#d0e810;
 }
 .contact-top{
 	text-align:center;

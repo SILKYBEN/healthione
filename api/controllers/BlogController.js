@@ -48,12 +48,7 @@ module.exports = {
 
 											console.log('single answers:',blog.answers);
 
-											// return answer;
-
 											
-
-											// console.log('new single answers:',answer.comment);
-											// return res.json({id: createdAnswer.id});
  
 					        	
 			
@@ -65,52 +60,6 @@ module.exports = {
 			
 		});
 
-				// });
-			// });
-
-
-	// 		Answer.findOne({
-	// 			id: req.session.Blog.id
-	// 		},{
-
-	// 		} function foundAnswer(err, answer){
-
-	// 			 // User.update({
-							 
-	// // 						          id: req.session.User.id
-	// // 						      }, {
-							 
-	// // 						          answers: user.answers 
-	// // 						      })
-							 
-	// // 						        .exec(function(err){
-							 
-	// // 						          if (err) return res.negotiate(err);  						 
-							 
-							 
-	// // 						          return res.json({id: createdAnswer.id}); 
-							 
-	// // 						        });
-	
-	// 		if (err) return next(err);
-	// 		var blog = {
-
-	// 			title: req.session.Blog.id
-
-	// 		}
-	// 		// req.session.Blog=blog;
-	// 		//var header1 = Welcome to Ask Health Experts
-
-
-	// 		res.view({
-	// 			answer:answer
-	// 			// blog:blog
-	// 		});
-	// 	//res.locals.flash = _.clone(req.session.flash);
-	// 	//res.view();
-
-	// 	});
-		//req.session.flash = {};
 		
 		}, 
 	
@@ -120,7 +69,7 @@ module.exports = {
 		// Blog.find (function foundPost(err, blog) {
 
 
-			Blog.find(req.params.all()).sort('dateCreated DESC').populate('answers').populate('creator').exec(function foundPost(err, blog){
+			Blog.find(req.params.all()).sort('id DESC').populate('answers').populate('creator').exec(function foundPost(err, blog){
 	
 			if (err) return next(err);
 
@@ -161,26 +110,9 @@ module.exports = {
 				});
 			});
 
-			// req.session.Blog=blog;
-			// var detail = {
-
-
-
-			// }
-			// //req.session.Answer.questionId = req.session.Blog.id;
-
-			//var header1 = Welcome to Ask Health Experts
-
-
-			// res.view({
-			// 	blog:blog
-			// 	// user:user
+			
 			});
-		//res.locals.flash = _.clone(req.session.flash);
-		//res.view();
-
-		// });
-		//req.session.flash = {};
+		
 		
 		},
 	'askPatient': function(req, res){
@@ -190,24 +122,26 @@ module.exports = {
 		//req.session.flash = {};
 		
 		},
-	// create: function(req, res, next){
 
-	// 	Blog.create (req.params.all(), function foundPost(err, blog) {
-	// 		if (err) return next(err);
+	index : function(req, res, next){
 
-	// 		req.session.authenticated=true;
-
-	// 		req.session.Blog = blog;
-
-	// 		res.redirect('/blog/askExpert');
-	// 		//res.json(blog);
-	// 	//res.locals.flash = _.clone(req.session.flash);
-	// 	//res.view();
-
-	// 	});
-	// 	//req.session.flash = {};
+				
+	 	Blog.find (function foundBlogs(err, blogs) {
+			if (err) return next(err);
+			req.session.authenticated=true;
+			//if (!user) return next();
+			res.view({
+				blogs:blogs
+			});
+			
+			//res.json(user);
+			//res.redirect('/user/show/'+user.id);
 		
-	// 	},
+
+	
+		});
+	},
+	
 	create: function(req, res, next){
 
 				User.findOne({ id: req.session.User.id 
@@ -249,66 +183,23 @@ module.exports = {
 
 											if (err) return res.negotiate(err);
 
-											console.log('blog: ', blog);
-											return res.json({id: createdBlog.id});
+											// console.log('blog: ', blog);
+											return res.redirect('/blog/singleblog/'+blog.id);
  
 					        	});
 							});
 
 
-		                    	// user.blogs = []; 
-		                    	// user.blogs.push({
-		                    	// comment: req.param('comment'), 
-		                    	// // title: req.param('title'),
-		                    	// // description: req.param('description'),
-		                    	// dateCreated: user.createdAt, 
-		                    	// updated: user.updatedAt, 
-		                    	// id: user.id
+		                    	
 							 
 						});
 		            });
 							 
-							    // User.update({
-							 
-							    //       id: req.session.User.id
-							    //   }, {
-							 
-							    //       answers: user.answers 
-							    //   })
-							 
-							    //     .exec(function(err){
-							 
-							    //       if (err) return res.negotiate(err);  						 
-							 
-							 
-							    //       return res.json({id: createdAnswer.id}); 
-							 
-							    //     });
+							    
 							 
 							      });
 							 
-							    // });
-
-
-
-		// 	Answer.create (req.params.all(), function foundAnswer(err, answer) {
-		// 	if (err) return next(err);
-
-		// 	req.session.authenticated=true;
-
-		// 	req.session.Answer = answer;
-
-		// 	res.redirect('/answer/viewAnswer');
-
-
-
-
-		// 	//res.json(blog);
-		// //res.locals.flash = _.clone(req.session.flash);
-		// //res.view();
-
-		// });
-		//req.session.flash = {};
+							   
 		
 		},
 

@@ -9,32 +9,7 @@ module.exports = {
 
 
 	'viewArticleAnswer': function(req, res, next){
-		// Blog.find (function foundPost(err, blog) {
-
-			// User.findOne({
-			// 	id:req.session.User.id
-			// }).populate('blogs')
-			// .exec(function (err,user){
-			// 	if (err) return res.negotiate(err);
-			// 	if (!user) return res.notFound();
-
-			// 	var user={
-			// 		name:user.name
-
-			// 	}
-
-				// Blog.findOne({
-				// 	id:req.session.Blog.id 
-				// }).populate('answers')
-				// .exec(function (err, blog){
-				// 	if (err) return res.negotiate(err);
-				// 	if (!blog) return res.notFound();
-
-				// 	var blog = {
-				// 		title:blog.title,
-				// 		description:blog.description,
-				// 		dateCreated:blog.dateCreated
-				// 	}
+		
 
 					ArticleAnswer.find({
 
@@ -287,14 +262,12 @@ module.exports = {
 									}).populate('articles').exec(function (err, user){
 
 										if (err) return res.negotiate(err);
-										console.log('user: ', user);
 
 									Article.findOne({ 
 										id: req.session.Article.id 
 									}).populate('articleAnswers').exec(function (err, article){
 
 										if (err) return res.negotiate(err);
-										console.log('article: ', article);
 
 									
 
@@ -304,8 +277,8 @@ module.exports = {
 
 											if (err) return res.negotiate(err);
 
-											console.log('articleAnswer: ', articleAnswer);
-											return res.json({id: createdArticleAnswer.id});
+											return res.redirect('/article/singleArticle/'+article.id)
+											// return res.json({id: createdArticleAnswer.id});
  
 					        	});
 							});

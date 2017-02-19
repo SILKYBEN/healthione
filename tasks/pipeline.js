@@ -37,7 +37,7 @@ var jsFilesToInject = [
   
   'js/jquery.js',
   'js/jquery-1.11.0.min.js',
-  'js/bootsrap.min.js',
+  
   'js/bootstrap.js',
 
   // All of the rest of your client-side js files

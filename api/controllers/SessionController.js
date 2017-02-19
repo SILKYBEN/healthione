@@ -34,8 +34,8 @@ module.exports = {
 
 				// if (err) return next(err);
 
-				res.redirect('/session/new');
-				return;
+				return res.redirect('/session/new');
+				
 			}
 		// var oldDateObj = new Date();
 		// var newDateObj = new Date(oldDateObj.getTime() + 60000);
@@ -56,8 +56,7 @@ module.exports = {
 				}
 				
 
-			res.redirect('/session/new');
-			return;
+			return res.redirect('/session/new');
 			}
 			
 			var bcrypt = require('bcryptjs');
@@ -72,8 +71,7 @@ module.exports = {
 				}
 				// return next(usernamePasswordMismatchError);
 
-			res.redirect('/session/new');
-			return;
+			return res.redirect('/session/new');
 
 			}
 
@@ -83,8 +81,10 @@ module.exports = {
 			
 
 			if (req.session.User.admin){
-				res.redirect('/user');
-				return;
+				req.session.authenticated=true;
+				req.session.User = user;
+				return res.redirect('/');
+				
 			}
 
 			res.redirect('/');

@@ -49,6 +49,41 @@ alert("Please Fill in everything correctly")
 }
 //-->
 </script>
+<script language="JavaScript">
+<!--
+function calculateRisk(event) {
+	event.preventDefault();
+var gender = parseInt(document.riskForm.gender.value)
+var age = parseInt(document.riskForm.age.value)
+var race = parseInt(document.riskForm.race.value)
+var hyper = parseInt(document.riskForm.hyper.value)
+var bmi = parseInt(document.riskForm.bmi.value)
+var diabetic = parseInt(document.riskForm.diabetic.value)
+var smoke = parseInt(document.riskForm.smoke.value)
+
+var total = gender+age+race+hyper+bmi+diabetic+smoke
+document.riskForm.estimate.value = total
+
+if(gender >= 0 && age >= 0 && race >= 0 && hyper >= 0 && bmi >= 0 && diabetic >= 0 && smoke >= 0){
+	if(total <= 4){
+	document.riskForm.meaning.value = " Your Cardiac Risk is Low"
+	}
+	if(total > 4 && total <= 9){
+	document.riskForm.meaning.value = " Your Cardiac Risk is Medium"
+	}
+	if(total > 9 && total <= 12){
+	document.riskForm.meaning.value = " Your Cardiac Risk is High"
+	}
+	if(total > 12 && total <= 15){
+	document.riskForm.meaning.value = " You Are In Danger"
+	}
+}
+else{
+alert("Please Fill in everything correctly")
+	}
+}
+</script>
+
 </head>
 <!--start-header-->
   <div class="header" id="home">
@@ -100,9 +135,11 @@ alert("Please Fill in everything correctly")
 					</ul>
         </li>
         <% } %>
-        <% if ( session.authenticated ) { %>
-        	<li><a href="/user/show/<%= session.User.id %>"  class="active"><%= session.User.name %></a></li>
-        <% }%>
+
+        <% if (session.authenticated) { %>
+        
+        	<li><a href="/user/show/<% session.User.id %>"  class="active"><%= session.User.name %></a></li>
+        <% } %>
         <% if ( session.authenticated && session.User.admin) { %>
         	<li><a href="/user" > User Administration </a></li>
         	<!-- <li><a href="/article"  class="active"> Articles </a></li> -->
@@ -113,14 +150,14 @@ alert("Please Fill in everything correctly")
 			    
 			  </ul>
 			</li>
-        <% }%>
+        <% } %>
             <li><a href="/"  >Home</a></li>
-            <li><a href="#blog" class="scroll">Blog</a></li>
+            <li><a href="#blog" class="scroll">Forum</a></li>
             <li><a href="#get" class="scroll">Get In Touch</a></li>
 
             <% if ( session.authenticated ) { %>
         	<li><a href="/session/destroy"  class=""> Sign Out </a></li>
-        <% }%>
+        <% } %>
 	  
           </ul>
 
@@ -171,71 +208,14 @@ alert("Please Fill in everything correctly")
 										<a href="/user/new" class="get">Sign-Up</a>
 									</div>
 									<div class="banner-left">
-										<a href="#projects" class="fut">Projects</a>
+										<a href="#premium" class="fut">Go Premium</a>
 									</div>
 									<div class="clearfix"> </div>
 								</div>
-								<% }%>
+								<% } %>
 							</div>
 						</li>
-						<li>
-							<div class="banner-top">
-								<a href="/user/new" class="get"> <h2>Do you want access to health-based career workshops for students?
-								<p>latest health news and innovations,counselling from certified HEALTH PROFESSIONALS?</p> 
-								<p>Do you want proper information about diseases and treatments from qualified <strong>MEDICAL DOCTORS</strong>? </p> </h2></a>
-								<% if (!session.authenticated) { %>
-
-								<div class="banner-bottom">
-									<div class="banner-left">
-										<a href="/user/new" class="get">Sign-Up</a>
-									</div>
-								
-									<div class="banner-left">
-										<a href="#projects" class="fut">Projects</a>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								<% }%>
-
-							</div>
-						</li>
-						<li>
-							<div class="banner-top">
-								<h2>Do you want right information about physical therapies from seasoned <strong>PHYSIOTHERAPISTS</strong> online?
-								<p> Do you want assistance to do health and health-related surveys using social platforms?</p></h2>
-								<% if (!session.authenticated) { %>
-								<div class="banner-bottom">
-									<div class="banner-left">
-										<a href="/user/new" class="get">Sign-Up</a>
-									</div>
-								
-									<div class="banner-left">
-										<a href="#projects" class="fut">Projects</a>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								<% }%>
-
-							</div>
-						</li>
-						<li>
-							<div class="banner-top">
-								<h2>Do you wish to organise Health seminars but dont have qualified resource person to speak?
-								<p> Do you wish to partner or volunteer to organise and serve in health outreaches?</p></h2>
-								<% if (!session.authenticated) { %>
-								<div class="banner-bottom">
-									<div class="banner-left">
-										<a href="/user/new" class="get">Sign-Up</a>
-									</div>
-								
-									<div class="banner-left">
-										<a href="#projects" class="fut">Projects</a>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								<% }%>
-							</div>
-						</li>
+						
 					</ul>
 			    </div>
 			  <div class="clearfix"> </div>
@@ -277,14 +257,14 @@ alert("Please Fill in everything correctly")
 				<div class="col-md-4 services-left">
 					<div class="service-one">
 						<a href="/blog/askExpert"><img src="images/service-1.png" alt="" /></a>
-						<a href="/blog/askExpert"><h4>Ask Health Experts</h4></a>
+						<a href="/blog/askExpert"><h4>Health Question And Answer Forum </h4></a>
 						<p class="overflow-visible"> This is a free health online Question and Answer forum that connects people anonymously, empowering them with knowledge to assist them in making more informed decisions by getting answers to their health concerns thereby improving their quality of life. </p>
 					</div>
 				</div>
 				<div class="col-md-4 services-left">
 					<div class="service-one">
-						<a href="#blog" class="scroll"><img src="images/services-3.png" alt="" /></a>
-						<a href="#blog" class="scroll"><h4>Blog Section</h4></a>
+						<a href="#article" class="scroll"><img src="images/services-3.png" alt="" /></a>
+						<a href="#article" class="scroll"><h4>Article Section</h4></a>
 						<p class="overflow-visible">view articles by various contributors and interviews with expert in health and other relevant areas.</p>
 					</div>
 				</div>
@@ -378,121 +358,267 @@ alert("Please Fill in everything correctly")
 			  </script>
 			<!--End-slider-script-->
 				
-<div>
+<div class="servicess" id="servicess">
+
+	<div class="container">
+		<div class="servicess-top">
+				<h3> Health Calculator </h3>
+				<span> </span>
+		</div>
+	
+
+		<div class="servicess-bottom">
+			<div class="col-md-6 servicess-left">
+				<div class="servicess-one">
+					<div class="row main">
+		        		<div class="panel-heading">
+		                 <div class="panel-title text-center">
+		                    <h1 class="title">BMI CALCULATOR</h1>
+		                  </div>
+		              	</div>
+				        <div class="main-login main-center">
+				          <form name="bmiForm" class="form-horizontal" >            
+				            <div class="form-group" >
+				              <label for="weight" class="cols-sm-2 control-label">Weight</label>
+				              <div class="cols-sm-10">
+				                <div class="input-group">
+				                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+				                  <input type="text" class="form-control" name="weight" id="weight"  placeholder="Enter Your Weight" />
+				                </div>
+				              </div>
+				            </div>
+				            <div class="form-group">
+				              <label for="height" class="cols-sm-2 control-label">Height</label>
+				              <div class="cols-sm-10">
+				                <div class="input-group">
+				                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+				                  <input type="text" class="form-control" name="height" id="height"  placeholder="Enter your Height" />
+				                </div>
+				              </div>
+				            </div>
+				            <div class="form-group ">
+				             	<input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Calculate Bmi" onClick="calculateBmi(event)" />
+				            </div>
+				            
+
+				            
+				            <div class="form-group">
+				              <label for="bmi" class="cols-sm-2 control-label">Your Bmi is </label>
+				              <div class="cols-sm-10">
+				                <div class="input-group">
+				                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+				                  
+				                  
+				                  <input type="text" class="form-control" name="bmi"  placeholder=""/>
+				                </div>
+				              </div>
+				            </div>
+
+				            <div class="form-group">
+				              <label for="meaning" class="cols-sm-2 control-label">This Means </label>
+				              <div class="cols-sm-10">
+				                <div class="input-group">
+				                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+				                  <input type="text" class="form-control" name="meaning"  placeholder=""/>
+				                </div>
+				              </div>
+				            </div>
 
 
-     <div class="container">
-      <div class="row main">
-        <div class="panel-heading">
-                 <div class="panel-title text-center">
-                    <h1 class="title">BMI CALCULATOR</h1>
-                  </div>
-              </div>
-              
-        <div class="main-login main-center">
-          <form name="bmiForm" class="form-horizontal" >            
-            <div class="form-group" >
-              <label for="weight" class="cols-sm-2 control-label">Weight</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="weight" id="weight"  placeholder="Enter Your Weight" />
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="height" class="cols-sm-2 control-label">Height</label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="height" id="height"  placeholder="Enter your Height" />
-                </div>
-              </div>
-            </div>
-            <div class="form-group ">
-             	<input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Calculate Bmi" onClick="calculateBmi(event)" />
-            </div>
-            
-
-            
-            <div class="form-group">
-              <label for="bmi" class="cols-sm-2 control-label">Your Bmi is </label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                  
-                  
-                  <input type="text" class="form-control" name="bmi"  placeholder=""/>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="meaning" class="cols-sm-2 control-label">This Means </label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="meaning"  placeholder=""/>
-                </div>
-              </div>
-            </div>
 
 
+				            <div class="form-group ">
+				              <input type= "reset"  class="btn btn-primary btn-lg btn-block login-button" value="reset" />
+				            </div>
+				            
+				          </form>
+				        </div>
+	      			</div>
+				</div>
+			</div>
+
+			<div class="col-md-6 servicess-left">
+				<div class="servicess-one">
+					<div class="row main">
+		        		<div class="panel-heading">
+		                 <div class="panel-title text-center">
+		                    <h1 class="title"> CARDIAC RISK ESTIMATOR </h1>
+		                  </div>
+		               </div>
+			        <div class="main-login main-center">
+			          <form name="riskForm" class="form-horizontal" >            
+			            <div class="form-group">
+			                <label for="gender" class="cols-sm-2 control-label"> Select Your Gender </label>
+			                    <div class="col-sm-10">                               
+			                          <div class="input-group">
+			                                <label class="radio-inline"> <input type="radio" name="gender" id="gender" value= "2"> Male </label>
+			                                <label class="radio-inline"> <input type="radio" name="gender" id="gender" value="1"> Female </label>
+			                            </div>
+			                    </div>
+			              </div>
+			              <div class="form-group">
+			                <label for="age" class="cols-sm-1 control-label"> Select Your Age </label>
+			                    <div class="col-sm-11">                               
+			                          <div class="input-group">
+			                                <label class="radio-inline"> <input type="radio" name="age" id="age" value= "0"> 25 to 39 Years </label><br>
+			                                <label class="radio-inline"> <input type="radio" name="age" id="age" value="1">40 to 59 Years </label><br>
+			                                <label class="radio-inline"> <input type="radio" name="age" id="age" value="2">Above 60 Years </label>
+			                            </div>
+			                    </div>
+			              </div>
+			              <div class="form-group">
+			                <label for="race" class="cols-sm-1 control-label"> Select Your Race </label>
+			                    <div class="col-sm-11">                               
+			                          <div class="input-group">
+			                                <label class="radio-inline"> <input type="radio" name="race" id="race" value= "1"> White </label>
+			                                <label class="radio-inline"> <input type="radio" name="race" id="race" value="2"> Black </label>
+			                                <label class="radio-inline"> <input type="radio" name="race" id="race" value="2"> Others </label>
+			                            </div>
+			                    </div>
+			              </div>
+			              <div class="form-group">
+			                <label for="hypertensive" class="cols-sm-1 control-label"> Are you Hypertensive?  </label>
+			                    <div class="col-sm-11">                               
+			                          <div class="input-group">
+			                                <label class="radio-inline"> <input type="radio" name="hyper" id="hyper" value= "0"> No </label><br>
+			                                <label class="radio-inline"> <input type="radio" name="hyper" id="hyper" value="1"> Yes, With Treatment </label><br>
+			                                <label class="radio-inline"> <input type="radio" name="hyper" id="hyper" value="2"> Yes, Wthout Treatment </label>
+			                            </div>
+			                    </div>
+			              </div>
+			              <div class="form-group">
+			                <label for="bmi" class="cols-sm-1 control-label"> Select Your BMI Range?  </label>
+			                    <div class="col-sm-11">                               
+			                          <div class="input-group">
+			                                <label class="radio-inline"> <input type="radio" name="bmi" id="bmi" value= "0"> Less Than 25 </label><br>
+			                                <label class="radio-inline"> <input type="radio" name="bmi" id="bmi" value="1"> 25 to 30 </label><br>
+			                                <label class="radio-inline"> <input type="radio" name="bmi" id="bmi" value="2"> Above 30 </label>
+			                            </div>
+			                    </div>
+			              </div>
+			              <div class="form-group">
+			                <label for="diabetic" class="cols-sm-1 control-label"> Are you Diabetic?  </label>
+			                    <div class="col-sm-11">                               
+			                          <div class="input-group">
+			                                <label class="radio-inline"> <input type="radio" name="diabetic" id="diabetic" value= "0"> No </label><br>
+			                                <label class="radio-inline"> <input type="radio" name="diabetic" id="diabetic" value="1"> Yes, With Treatment </label><br>
+			                                <label class="radio-inline"> <input type="radio" name="diabetic" id="diabetic" value="2"> Yes, Wthout Treatment </label>
+			                            </div>
+			                    </div>
+			              </div>
+			              <div class="form-group">
+			                <label for="smoke" class="cols-sm-1 control-label"> Smoking?  </label>
+			                    <div class="col-sm-11">                               
+			                          <div class="input-group">
+			                          		<label class="radio-inline"> <input type="radio" name="smoke" id="smoke" value= "0"> No </label><br>
+			                                <label class="radio-inline"> <input type="radio" name="smoke" id="smoke" value= "1"> 1 to 5 Years</label><br>
+			                                <label class="radio-inline"> <input type="radio" name="smoke" id="smoke" value="2"> 6 to 10 Years </label><br>
+			                                <label class="radio-inline"> <input type="radio" name="smoke" id="smoke" value="2"> Above 10 Years </label>
+			                            </div>
+			                    </div>
+			              </div>
+			              <div class="form-group ">
+			             	<input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Get Estimate" onClick="calculateRisk(event)" />
+			            </div>
+
+			            <div class="form-group">
+			              <label for="estimate" class="cols-sm-0 control-label">Your Cardiac Risk Estimate Is : </label>
+			              <div class="cols-sm-12">
+			                <div class="input-group">
+			                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+			                  
+			                  
+			                  <input type="text" class="form-control" name="estimate"  placeholder=""/>
+			                </div>
+			              </div>
+			            </div>
+
+			            <div class="form-group">
+			              <label for="meaning" class="cols-sm-2 control-label">This Means </label>
+			              <div class="cols-sm-10">
+			                <div class="input-group">
+			                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+			                  <input type="text" class="form-control" name="meaning"  placeholder=""/>
+			                </div>
+			              </div>
+			            </div>
 
 
-            <div class="form-group ">
-              <input type= "reset"  class="btn btn-primary btn-lg btn-block login-button" value="reset" />
-            </div>
-            
-          </form>
-        </div>
-      </div>
-    </div>
 
 
-    </div>
+			            <div class="form-group ">
+			              <input type= "reset"  class="btn btn-primary btn-lg btn-block login-button" value="reset" />
+			            </div>
+			            
+			          </form>
+			        </div>
+			      </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 	
 	<!--blog-starts-->
 	<div class="blog" id="blog">
 		<div class="container">
 			<div class="blog-top">
-				<h3>Blog</h3>
+				<h3>Question And Answers</h3>
+				<span></span>
+			</div>
+			
+			<div class="center-block">
+
+			<div class="blog-bottom">
+
+				<% _.each(blog, function(blog) { %>
+				<div class="forum-content" >
+				
+					<div class="forum-item">
+						<a href="/blog/askExpert" ><h3><%= blog.title %></h3></a>
+						<br>
+						<span>by <a href="#"><%= blog.nick %></a>  |  <%= blog.dateCreated %></span>
+						<p class="overflow-ellipsis"> <%= blog.description %> </p>
+						<br><br>
+						<a href="/article">Read more >></a>
+					</div>
+					
+				</div>
+
+			
+				<div class="clearfix"></div>
+				<% }) %>
+				
+			</div>
+			</div>
+		</div>
+	</div>
+	<!--blog-end-->
+
+	<!--Article-starts-->
+	<div class="blog" id="article">
+		<div class="container">
+			<div class="blog-top">
+				<h3>Articles</h3>
 				<span></span>
 			</div>
 			<div class="blog-bottom">
+			<% _.each(article, function(article) { %>
 				<div class="col-md-4 blog-left">
-					<a href="/user/blog"><img src="images/blog-1.jpg" alt="" /></a>
+					<a href="/article/singleArticle/<%= article.id %>" ><img src="images/<%= article.imageName %>" alt="" /></a>
 					<div class="blog-text">
-						<a href="/user/blog"><h4>Social Sharing For Traffic</h4></a>
-						<span>by <a href="#">admin</a>  |  June 26, 2014</span>
-						<p class="overflow-ellipsis">FAMILY PLANNING 2<br>
-1. MALE CONDOMS :Condoms usually worn over the penis are great at preventing both pregnancy and STDs. If you follow the instructions and use them every time you have sex, there's very little chance of pregnancy and your chance of getting or giving an STD is much lower.</p>
-<p><a href="/article/singleArticle/1">Read more >></a>
+						<a href=" /article/singleArticle/<%= article.id %>" ><h4><%= article.title %></h4></a>
+						<span>by <a href="#"><%= article.nick %></a>  |  <%= article.dateCreated %></span>
+						<p class="overflow-ellipsis"><%= article.description %></p>
 					</div>
 				</div>
-				<div class="col-md-4 blog-left">
-					<a href="/user/blog"><img src="images/desert.jpg" alt="" /></a>
-					<div class="blog-text">
-						<a href="/user/blog"><h4>Ecommerce Marketing</h4></a>
-						<span>by <a href="#">admin</a>  |  June 26, 2014</span>
-						<p class="overflow-ellipsis">Social Sharing is the best way to get more traffic. You can share your posting on the top social sharing sites. If you have a shop you can share your products on Social websites for Ecommerce Marketing.</p>
-						<p><a href="/article/singleArticle/2">Read more >></a>
-					</div>
-				</div>
-				<div class="col-md-4 blog-left">
-					<a href="/user/blog"><img src="images/blog-3.jpg" alt="" /></a>
-					<div class="blog-text">
-						<a href="/user/blog"><h4>How to Get High Page Rank</h4></a>
-						<span>by <a href="#">admin</a>  |  June 26, 2014</span>
-						<p class="overflow-ellipsis">Social Sharing is the best way to get more traffic. You can share your posting on the top social sharing sites. If you have a shop you can share your products on Social websites for Ecommerce Marketing.</p>
-						<p><a href="/article/singleArticle/3">Read more >></a>
-					</div>
-				</div>
+				<% }) %>
 				<div class="clearfix"></div>
 			</div>
 		</div>
 	</div>
 	<!--blog-end-->
+	
 
 	
 	
@@ -510,7 +636,7 @@ alert("Please Fill in everything correctly")
 				<div class="col-md-6 contact-left">
 					<ul>
 						<li><span class="address"> </span>
-						<p>Waiting for popsy, 
+						<p>Contact Me For Address, 
 						   <label>HealthiOne, popsy, Road</label>
                             Ibadan, Nigeria
                         </p>
@@ -519,7 +645,7 @@ alert("Please Fill in everything correctly")
 						<p>(+234)8149240238</p>
                         </li>
                         <li><span class="msg"> </span>
-						<p><a href="ebuson4real@gmail.com">ebuson4real@gmail.com</a></p>
+						<p><a href="bennetworks@coolsite.com">bennetworks@coolsite.com</a></p>
                         </li>
 					</ul>
 				</div>

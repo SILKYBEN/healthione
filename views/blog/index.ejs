@@ -1,36 +1,5 @@
-<!--Author: SilkyBen
-  Company: BenNetworks
-  Client: HealthiOne Initiative
--->
-<!DOCTYPE html>
-<html>
-<head>
-<title>HealthiOne Initiative</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="HealthiOne Initiative, responsive site, sochealth" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="/css/main.css" rel='stylesheet' type='text/css' />
-<script src="/js/jquery-1.11.0.min.js"></script>
-<script src="/js/jquery.js"></script>
-<script src="/js/validator.js"></script>
-<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-<!---- start-smoth-scrolling---->
-<script type="text/javascript" src="/js/move-top.js"></script>
-<script type="text/javascript" src="/js/easing.js"></script>
-<script type="text/javascript">
-      jQuery(document).ready(function($) {
-        $(".scroll").click(function(event){   
-          event.preventDefault();
-          $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-        });
-      });
-    </script>
 
-<!--end-smoth-scrolling-->
-</head>
-<!--start-header-->
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 <!--start-header-->
   <div class="header" id="home">
     <div class="container">
@@ -77,8 +46,8 @@
                         </li>
                     </ul>
         </li>
-        <% } %>
-        <% if ( session.authenticated ) { %>
+        <% } else { %>
+        
             <li><a href="/user/show/<%= session.User.id %>"  class="active"><%= session.User.name %></a></li>
         <% }%>
         <% if ( session.authenticated && session.User.admin) { %>
@@ -113,63 +82,53 @@
       </div>
     </div> 
     <!-- Header Ends -->
-    
-    <body>
-    <!-- script-for-menu -->
-  <!-- script-for-menu -->
-     <script>
-        $("span.menu").click(function(){
-          $(" ul.navig").slideToggle("slow" , function(){
-          });
-        });
-     </script>
-     <!--search-scripts-->
-          <script src="/js/classie.js"></script>
-          <script src="/js/uisearch.js"></script>
-            <script>
-              new UISearch( document.getElementById( 'sb-search' ) );
-            </script>
-  <!--//search-scripts-->
-     <!-- script-for-menu -->
-      <div class="container">
-      <div class="row main">
-        <div class="panel-heading">
-                 <div class="panel-title text-center">
-                    <h1 class="title"> Create New Article </h1>
-                  </div>
-              </div>
-              
-              
-        <div class="main-login main-center">
-          <form id="myform" class="form-horizontal" data-toggle="validator" method="post" action="/article/create" >            
-            <div class="form-group">
-              <label for="title" class="cols-sm-2 control-label"> Title </label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="title" id="title"  placeholder="Enter Your Article Title"/>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="occupation" class="cols-sm-2 control-label"> Description </label>
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                  <textarea name="description" id="description" placeholder="Description" data-error="Please Explain your Question " required></textarea>
-                </div>
-              </div>
-            </div>
+<hr>
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-box no-header clearfix">
+                <div class="main-box-body clearfix">
+                    <div class="table-responsive">
+                        <table class="table table-hover user-list">
+                            <thead>
+                                <tr>
+                                <th class="text-center"><span> Title</span></th>
+                                <th><span>Date</span></th>
+                                <th class="text-center"><span>Created-By</span></th>
+                                <th>&nbsp;</th>
+                                </tr>
+                            </thead>
 
-            
-            <div class="form-group ">
-              <input type= "submit"  class="btn btn-primary btn-lg btn-block login-button" value="Next" />
+                            <tbody>
+                            <% _.each(blogs, function(blog) { %>
+                                <tr>
+                                    <td>
+                                        <img src="http://bootdey.com/img/Content/user_1.jpg" alt="">
+                                        <a href="/blog/singleBlog/<%= blog.id %>" class="user-link"><%= blog.title %> </a>
+                                        
+                                    </td>
+                                    <td><%= blog.dateCreated %></td>
+                                    <td class="text-center">
+                                        <span class="label label-default"><%= blog.nick %></span>
+                                    </td>
+                                    <td><a href="/blog/singleBlog/<%= blog.id %>" class="btn btn-sm btn-primary">Show</a></td>
+                                        <td><a href="#" class="btn btn-sm btn-warning">Edit</a></td>
+                                    <td style="width: 20%;">
+                                        
+                                        <form action="/blog/destroy/<%= blog.id %>" method="POST">
+                                        <input type="hidden" name="_method" value="Delete" />
+                                        <input type="submit" value="Delete" class="btn btn-sm btn-danger" />
+                                        </form>
+                                    </td>
+                                </tr>
+
+                                <%})%>
+                                <h3>Count: <%= blogs.length %></h3>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-            
-            <input type="hidden" name="_csrf" value="<%= _csrf %>" />
-          </form>
         </div>
-      </div>
     </div>
-    </body>
-</html>
+</div>

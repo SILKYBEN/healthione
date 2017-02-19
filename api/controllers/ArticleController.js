@@ -28,9 +28,9 @@ module.exports = {
 
 			req.session.Article = article;
 
-			console.log('single Article session:',article);
-			console.log('single creator:',article.creator.name);
-			console.log('single articleAnswers:',article.articleAnswers.comment);
+			// console.log('single Article session:',article);
+			// console.log('single creator:',article.creator.name);
+			// console.log('single articleAnswers:',article.articleAnswers.comment);
 
 
 										ArticleAnswer.find({
@@ -67,52 +67,7 @@ module.exports = {
 			
 		});
 
-				// });
-			// });
 
-
-	// 		Answer.findOne({
-	// 			id: req.session.Blog.id
-	// 		},{
-
-	// 		} function foundAnswer(err, answer){
-
-	// 			 // User.update({
-							 
-	// // 						          id: req.session.User.id
-	// // 						      }, {
-							 
-	// // 						          answers: user.answers 
-	// // 						      })
-							 
-	// // 						        .exec(function(err){
-							 
-	// // 						          if (err) return res.negotiate(err);  						 
-							 
-							 
-	// // 						          return res.json({id: createdAnswer.id}); 
-							 
-	// // 						        });
-	
-	// 		if (err) return next(err);
-	// 		var blog = {
-
-	// 			title: req.session.Blog.id
-
-	// 		}
-	// 		// req.session.Blog=blog;
-	// 		//var header1 = Welcome to Ask Health Experts
-
-
-	// 		res.view({
-	// 			answer:answer
-	// 			// blog:blog
-	// 		});
-	// 	//res.locals.flash = _.clone(req.session.flash);
-	// 	//res.view();
-
-	// 	});
-		//req.session.flash = {};
 		
 		}, 
 	
@@ -137,13 +92,7 @@ module.exports = {
 		    avatarUrl: require('util').format('%s/assets/images/%s', sails.getBaseUrl(), req.session.User );
 		    imageName: req.param('files[0].filename');
 
-		    // console.log(uploadFile);
-		    // console.log(file.name);
-
-		    	// req.session.authenticated=true;
-
-		    	// res.set("Content-disposition", "attachment; filename='" + files.name + "'");
-
+		    
 		    	
 
 		    	var filess = { //#C
@@ -198,40 +147,12 @@ module.exports = {
 
 			      // return res.ok();
 			    });
-		// 	// 			// 			phone: req.param('phone'),
-			// 			// 			email: req.param('email'),
-			// 			// 			occupation: req.param('occupation'),
-			// 			// 			password: req.param('password')
-			// 			// 			};
-
-		    	// req.session.User = files;
-		    	// avatarFd: files[0].fd;
-		    	// var newPath = __dirname + "//fullsize/" + imageName;
-
-		    	// var imageName = req.param('filename');
-		    	// console.log(files[0].filename);
-		    	// res.json({ status: 200, file: files });
-		    	
-		    	// res.redirect('/user/show/' + req.session.User.id);
+		
 		    	res.redirect('/article');
 
 
 
-		    	 //      fs.writeFile('../../assets/images', files, function (err) {
-        // // let's see it
-			     //    res.redirect("/assets/images/" + imageName);
-			     //  });
-		    	// res.set("Content-disposition", "attachment; filename='" + files.name + "'");
-
-		    	// res.json({ status: 200, file: files });
-
-		  
-
-
-	        //	IF ERROR Return and send 500 error with error
-
-	        // console.log(files);
-	        // res.json({ status: 200, file: files });
+		    	
 	    });
 	},
 
@@ -315,34 +236,11 @@ module.exports = {
 							});
 
 
-		                    	// user.blogs = []; 
-		                    	// user.blogs.push({
-		                    	// comment: req.param('comment'), 
-		                    	// // title: req.param('title'),
-		                    	// // description: req.param('description'),
-		                    	// dateCreated: user.createdAt, 
-		                    	// updated: user.updatedAt, 
-		                    	// id: user.id
+		                    	
 							 
 						});
 		            });
 							 
-							    // User.update({
-							 
-							    //       id: req.session.User.id
-							    //   }, {
-							 
-							    //       answers: user.answers 
-							    //   })
-							 
-							    //     .exec(function(err){
-							 
-							    //       if (err) return res.negotiate(err);  						 
-							 
-							 
-							    //       return res.json({id: createdAnswer.id}); 
-							 
-							    //     });
 							 
 							      });
 							 
