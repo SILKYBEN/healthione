@@ -59,7 +59,7 @@ module.exports.session = {
   port: 9622,
   // ttl: <redis session TTL in seconds>,
   db: 'redistogo',
-  pass: '9959f58706324e013bb96cc055caa43d',
+  pass: '9959f58706324e013bb96cc055caa43d'
   // prefix: 'sess:',
 
 
