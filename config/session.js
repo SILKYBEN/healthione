@@ -44,7 +44,7 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  // adapter: 'redis',
+  adapter: 'redis',
 
   /***************************************************************************
   *                                                                          *
@@ -55,11 +55,11 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  // host: 'localhost',
-  // port: 6379,
+  host: 'koi.redistogo.com',
+  port: 9622,
   // ttl: <redis session TTL in seconds>,
-  // db: 0,
-  // pass: <redis auth password>,
+  db: 'redistogo',
+  pass: '9959f58706324e013bb96cc055caa43d',
   // prefix: 'sess:',
 
 
