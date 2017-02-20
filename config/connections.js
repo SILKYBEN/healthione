@@ -21,7 +21,7 @@
 
 module.exports.connections = {
 
-  'default':'benMongodbServer',
+   'default':'benMongodbServer',
 
         benMongodbServer:{
         module:'sails-mongo',
@@ -30,6 +30,10 @@ module.exports.connections = {
 
         schema    : true
         }
+
+};
+
+  
 
   /***************************************************************************
   *                                                                          *
@@ -108,4 +112,3 @@ module.exports.connections = {
   *                                                                          *
   ***************************************************************************/
 
-};
