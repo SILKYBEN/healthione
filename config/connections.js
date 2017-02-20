@@ -21,20 +21,16 @@
 
 module.exports.connections = {
 
-   // 'default':'benMongodbServer',
+   'default':'benMongodbServer',
 
-   //      benMongodbServer:{
-   //      adapter:'sails-mongo',
-   //      module:'sails-mongo',
-   //      // host: 'localhost',
-   //      // user: '',
-   //      // password:'',
-   //      // database:'healthione',
-   //      // url:"mongodb://<dbuser>:<dbpassword>@ds157469.mlab.com:57469/heroku_83dv5krc",
-   //      url:"mongodb://admin:123456@ds157469.mlab.com:57469/healthione",
+        benMongodbServer:{
+        adapter:'sails-mongo',
+        module:'sails-mongo',
 
-   //      schema    : true
-   //      }
+        url: process.env.DB_URL,
+
+        schema    : true
+        }
 
 
 
