@@ -21,6 +21,16 @@
 
 module.exports.connections = {
 
+  'default':'benMongodbServer',
+
+        benMongodbServer:{
+        module:'sails-mongo',
+        
+        url:process.env.DB_URL,
+
+        schema    : true
+        }
+
   /***************************************************************************
   *                                                                          *
   * Local disk storage for DEVELOPMENT ONLY                                  *
@@ -28,42 +38,43 @@ module.exports.connections = {
   * Installed by default.                                                    *
   *                                                                          *
   ***************************************************************************/
-  localDiskDb: {
-    adapter: 'sails-disk'
-  },
-
-  /***************************************************************************
-  *                                                                          *
-  * MySQL is the world's most popular relational database.                   *
-  * http://en.wikipedia.org/wiki/MySQL                                       *
-  *                                                                          *
-  * Run: npm install sails-mysql                                             *
-  *                                                                          *
-  ***************************************************************************/
-  // someMysqlServer: {
-  //   adapter: 'sails-mysql',
-  //   host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
-  //   user: 'YOUR_MYSQL_USER', //optional
-  //   password: 'YOUR_MYSQL_PASSWORD', //optional
-  //   database: 'YOUR_MYSQL_DB' //optional
+  // localDiskDb: {
+  //   adapter: 'sails-disk'
   // },
 
-  /***************************************************************************
-  *                                                                          *
-  * MongoDB is the leading NoSQL database.                                   *
-  * http://en.wikipedia.org/wiki/MongoDB                                     *
-  *                                                                          *
-  * Run: npm install sails-mongo                                             *
-  *                                                                          *
-  ***************************************************************************/
-  benMongodbServer: {
-    adapter: 'sails-mongo',
-    host: 'localhost',
-    port: 27017,
-    user: '', //optional
-    password: '', //optional
-    database: 'healthione' //optional
-  }
+  // /***************************************************************************
+  // *                                                                          *
+  // * MySQL is the world's most popular relational database.                   *
+  // * http://en.wikipedia.org/wiki/MySQL                                       *
+  // *                                                                          *
+  // * Run: npm install sails-mysql                                             *
+  // *                                                                          *
+  // ***************************************************************************/
+  // // someMysqlServer: {
+  // //   adapter: 'sails-mysql',
+  // //   host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
+  // //   user: 'YOUR_MYSQL_USER', //optional
+  // //   password: 'YOUR_MYSQL_PASSWORD', //optional
+  // //   database: 'YOUR_MYSQL_DB' //optional
+  // // },
+
+  // /***************************************************************************
+  // *                                                                          *
+  // * MongoDB is the leading NoSQL database.                                   *
+  // * http://en.wikipedia.org/wiki/MongoDB                                     *
+  // *                                                                          *
+  // * Run: npm install sails-mongo                                             *
+  // *                                                                          *
+  // ***************************************************************************/
+  // benMongodbServer: {
+  //   adapter: 'sails-mongo',
+  //   host: 'localhost',
+  //   port: 27017,
+  //   user: '', //optional
+  //   password: '', //optional
+  //   database: 'healthione' //optional
+  // }
+
   // someMongodbServer: {
   //   adapter: 'sails-mongo',
   //   host: 'localhost',
