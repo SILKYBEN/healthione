@@ -103,7 +103,7 @@
                             <% _.each(blogs, function(blog) { %>
                                 <tr>
                                     <td>
-                                        <img src="http://bootdey.com/img/Content/user_1.jpg" alt="">
+                                        <img src="https://bootdey.com/img/Content/user_1.jpg" alt="">
                                         <a href="/blog/singleBlog/<%= blog.id %>" class="user-link"><%= blog.title %> </a>
                                         
                                     </td>
@@ -118,6 +118,7 @@
                                         <form action="/blog/destroy/<%= blog.id %>" method="POST">
                                         <input type="hidden" name="_method" value="Delete" />
                                         <input type="submit" value="Delete" class="btn btn-sm btn-danger" />
+                                        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
                                         </form>
                                     </td>
                                 </tr>

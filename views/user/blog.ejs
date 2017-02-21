@@ -10,8 +10,8 @@
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <script src="js/jquery-1.11.0.min.js"></script>
 <script src="js/jquery.js"></script>
-<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 <!---- start-smoth-scrolling---->
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
@@ -61,6 +61,8 @@
 													 <input type="checkbox"> keep me logged-in
 													 </label>
 												</div>
+												<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+
 										 </form>
 									</div>
 									<div class="bottom text-center">
@@ -241,6 +243,7 @@
 					 <div class="s-btn">
 						<form>
 							<input type="submit" value="Send">
+							<input type="hidden" name="_csrf" value="<%= _csrf %>" />
 						</form>
 				     </div>	
 				</div>
@@ -262,7 +265,7 @@
 					</ul>
 				</div>
 				<div class="col-md-6 footer-left">
-					<p>Template by <a href="http://w3layouts.com/"> W3layouts</a></p>
+					<p>Template by <a href="https://w3layouts.com/"> W3layouts</a></p>
 				</div>
 				<div class="clearfix"></div>
 			</div>

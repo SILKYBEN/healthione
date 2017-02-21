@@ -18,8 +18,8 @@
 <script src="/js/jquery-1.11.0.min.js"></script>
 <script src="/js/jquery.js"></script>
 <script src="/js/validator.js"></script>
-<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 <!---- start-smoth-scrolling---->
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
@@ -154,7 +154,7 @@
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                  <input type="text" data-required="true" class="form-control" name="name" id="name"  placeholder="<%= user.name %>" required/>
+                  <input type="text" data-required="true" class="form-control" name="name" id="name"  value="<%= user.name %>" required/>
                 </div>
               </div>
             </div>
@@ -163,7 +163,7 @@
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="occupation" id="occupation"  placeholder="<%= user.occupation %>" required/>
+                  <input type="text" class="form-control" name="occupation" id="occupation"  value="<%= user.occupation %>" required/>
                 </div>
                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                 <div class="help-block with-errors">Kindly fill in you occupation</div>
@@ -194,7 +194,7 @@
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="phone" id="phone"  placeholder="<%= user.phone %>"/>
+                  <input type="text" class="form-control" name="phone" id="phone"  value="<%= user.phone %>"/>
                 </div>
               </div>
             </div>
@@ -204,7 +204,7 @@
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                  <input type="email" class="form-control" name="email" id="email" placeholder="<%= user.email %>" data-error="that email address is invalid" required />
+                  <input type="email" class="form-control" name="email" id="email" value="<%= user.email %>" data-error="that email address is invalid" required />
                 </div>
                 <div class="help-block with-errors"></div>
               </div>
@@ -214,7 +214,7 @@
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="nick" id="nick"  placeholder="<%= user.nick %>"/>
+                  <input type="text" class="form-control" name="nick" id="nick"  value="<%= user.nick %>"/>
                 </div>
               </div>
             </div>
