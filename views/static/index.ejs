@@ -138,7 +138,7 @@ alert("Please Fill in everything correctly")
 
         <% if (session.authenticated) { %>
         
-        	<li><a href="/user/show/<% session.User.id %>"  class="active"><%= session.User.name %></a></li>
+        	<li><a href="/user/show/<%= session.User.id %>"  class="active"><%= session.User.name %></a></li>
         <% } %>
         <% if ( session.authenticated && session.User.admin) { %>
         	<li><a href="/user" > User Administration </a></li>
