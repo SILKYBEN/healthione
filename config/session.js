@@ -44,23 +44,23 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  adapter: 'redis',
+  // adapter: 'redis',
 
-  /***************************************************************************
-  *                                                                          *
-  * The following values are optional, if no options are set a redis         *
-  * instance running on localhost is expected. Read more about options at:   *
-  *                                                                          *
-  * https://github.com/visionmedia/connect-redis                             *
-  *                                                                          *
-  ***************************************************************************/
+  // **************************************************************************
+  // *                                                                          *
+  // * The following values are optional, if no options are set a redis         *
+  // * instance running on localhost is expected. Read more about options at:   *
+  // *                                                                          *
+  // * https://github.com/visionmedia/connect-redis                             *
+  // *                                                                          *
+  // **************************************************************************
 
-  host: 'koi.redistogo.com',
-  port: 9622,
-  // ttl: <redis session TTL in seconds>,
-  db: 'redistogo',
-  pass: '9959f58706324e013bb96cc055caa43d'
-  // prefix: 'sess:',
+  // host: 'koi.redistogo.com',
+  // port: 9622,
+  // // ttl: <redis session TTL in seconds>,
+  // db: 'redistogo',
+  // pass: '9959f58706324e013bb96cc055caa43d'
+  // // prefix: 'sess:',
 
 
   /***************************************************************************
