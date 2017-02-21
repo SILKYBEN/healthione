@@ -158,11 +158,11 @@ display: inline;
                                     <td class="text-center">
                                         <span class="label label-default"><%= article.nick %></span>
                                     </td>
-                                    <td><a href=" /article/singleArticle/<%= article.id %>" class="btn btn-sm btn-primary">Show</a></td>
+                                    <td><a href="/article/singleArticle/<%= article.id %>" class="btn btn-sm btn-primary">Show</a></td>
                                         
                                     <td style="width: 20%;">
                                         
-                                        <form action=" /article/destroy/<%= article.id %> " method="POST">
+                                        <form action="/article/destroy/<%= article.id %> " method="POST">
                                         <input type="hidden" name="_method" value="Delete" />
                                         <input type="submit" value="Delete" class="btn btn-sm btn-danger" />
                                         <input type="hidden" name="_csrf" value="<%= _csrf %>" />
