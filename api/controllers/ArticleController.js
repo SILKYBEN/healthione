@@ -79,7 +79,7 @@ module.exports = {
 	    //	Call to /upload via GET is error
 
 	    var uploadFile = req.file('uploadFile');
-	    // console.log(uploadFile);
+	    console.log('First Step: ', uploadFile);
 
 	    uploadFile.upload({ dirname: '../../assets/images', saveAs: function(file, cb) { cb(null, file.filename);
   }, }, function onUploadComplete(err, files) {
@@ -89,7 +89,8 @@ module.exports = {
 	         if (files.length === 0){
 		      return res.badRequest('No file was uploaded');
 		    }
-		    avatarUrl: require('util').format('%s/assets/images/%s', sails.getBaseUrl(), req.session.User );
+		    console.log('2nd Step : ', files);
+		    // avatarUrl: require('util').format('%s/assets/images/%s', sails.getBaseUrl(), req.session.User );
 		    imageName: req.param('files[0].filename');
 
 		    
@@ -103,43 +104,36 @@ module.exports = {
 		req.session.User.avatarFd = files[0].fd;
 		req.session.User.avatarName = files[0].filename;
 		// req.session.Article.imageName = files[0].filename;
+		// console.log('Third step : ');
 
 		Article.update(req.session.Article, {
 
-			    	// user.avatarFd = req.param('files[0].fd'),
-
-			      // Generate a unique URL where the avatar can be downloaded.
-			      // avatarUrl: require('util').format('%s/assets/images/%s', sails.getBaseUrl(), req.session.User ),
-
-			      // Grab the first file and use it's `fd` (file descriptor)
+			    	
 			      imageName: files[0].filename
+
+			      
 
 			    })
 			    .exec(function (err){
 			      if (err) return res.negotiate(err);
 
-			       // console.log(req.session.User.avatarFd);
-			       
-			       // console.log('The image Name : ',imageName);
-			       
 
-			      // return res.ok();
-			    });
+			    } );
 
 		  // Save the "fd" and the url where the avatar for a user can be accessed
 			    User.update(req.session.User, {
 
-			    	// user.avatarFd = req.param('files[0].fd'),
-
-			      // Generate a unique URL where the avatar can be downloaded.
-			      // avatarUrl: require('util').format('%s/assets/images/%s', sails.getBaseUrl(), req.session.User ),
-
-			      // Grab the first file and use it's `fd` (file descriptor)
+			    
 			      avatarFd: files[0].fd
+
+			      // console.log('avatarFd : ', avatarFd);
 
 			    })
 			    .exec(function (err){
-			      if (err) return res.negotiate(err);
+			      if (err) { 
+			      	// console.log('avatarFd err : ', err);
+			      	return res.negotiate(err); 
+			      } 
 
 			       console.log(req.session.User.avatarFd);
 			       console.log(req.session.User.avatarName);
@@ -148,13 +142,15 @@ module.exports = {
 			      // return res.ok();
 			    });
 		
-		    	res.redirect('/article');
+		    	 res.redirect('/articles');
 
 
 
 		    	
 	    });
 	},
+
+	
 
 	index : function(req, res, next){
 

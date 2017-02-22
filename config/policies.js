@@ -31,9 +31,9 @@ module.exports.policies = {
    
    article:{
       'newArticle': "admin",
-      'newUpload' : "flash",
+      'newUpload' : "admin",
       'singleArticle':"flash",
-      '*'         : "admin"
+                  '*': "admin"
 
    },
    user : {
