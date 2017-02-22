@@ -142,7 +142,7 @@ module.exports = {
 			      // return res.ok();
 			    });
 		
-		    	 res.redirect('/articles');
+		    	 res.redirect('/article');
 
 
 
