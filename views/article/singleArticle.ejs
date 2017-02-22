@@ -6,10 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="HealthiOne Initiative, responsive site, sochealth" />
-<meta property="og:title" content="<%= article.title %>" />
-<meta property="og:description" content="<%= article.description %>" />
-<meta property="og:url" content="http:healthpub.herokuapp.com/article/singleArticle/<%= article.id %>" />
-<meta property="og:image" content="https://healthpub.herokuapp.com/images/<%= article.imageName %>" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -119,6 +115,14 @@ display: inline;
     </div> 
     <!-- Header Ends -->
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 	<!-- script-for-menu -->
 	<!-- script-for-menu -->
@@ -151,9 +155,8 @@ display: inline;
 
 
 							<!-- Facebook -->
-						    <a href="https://www.facebook.com/sharer.php?u=https://healthpub.herokuapp.com/article/singleArticle/<%= article.id %>" target="_blank">
-						        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
-						    </a>
+						    <div class="fb-share-button" data-href="https://healthpub.herokuapp.com/article/singleArticle/&lt;%= article.id %&gt;" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhealthpub.herokuapp.com%2Farticle%2FsingleArticle%2F%3C%25%3D+article.id+%25%3E&amp;src=sdkpreparse">Share</a></div>
+
 
 						    <!-- Twitter -->
 						    <a href="https://twitter.com/share?url=https://healthpub.herokuapp.com/article/singleArticle/<%= article.id %>&amp;text=HealthiOne%20Initiative&amp;hashtags=HealthiOneInitiative" target="_blank">
