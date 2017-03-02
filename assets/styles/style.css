@@ -91,7 +91,7 @@ body a:hover{
 	-ms-transition: 0.5s all ease;
 }
 .header {
-  padding: 2em 0;
+  padding: 2.5em 0;
   position: relative;
 }
 ul.navig {
@@ -2927,7 +2927,7 @@ ul.callbacks_tabs.callbacks2_tabs li a:after {
   	font-size: 19px;
 }
 .header {
-  	padding: 1.8em 0;
+  	padding: 2.5em 0;
 }
 }
 @media (max-width:768px){
@@ -4034,7 +4034,7 @@ ul.navig li a {
   font-size: 12px;
 }
 .header {
-  padding: 1em 0 2.7em 0px;
+  padding: 1em 0 2.5em 0px;
 }
 .logo a img {
   width: 57%;

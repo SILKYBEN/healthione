@@ -1,10 +1,166 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%=typeof title == 'undefined' ? 'HealthPub' : title%></title>
+    <title><%=typeof title == 'undefined' ? 'GidiMed' : title%></title>
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+<meta name="keywords" content="HealthiOne Initiative, responsive site, sochealth" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="/js/validator.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<!---- start-smoth-scrolling---->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){   
+          event.preventDefault();
+          $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+      });
+    </script>
+<!--end-smoth-scrolling-->
+<script language="JavaScript">
+<!--
+function calculateBmi(event) {
+  event.preventDefault();
+var weight = document.bmiForm.weight.value
+var height = document.bmiForm.height.value
+if(weight > 0 && height > 0){ 
+var finalBmi = weight/(height/100*height/100)
+document.bmiForm.bmi.value = finalBmi
+if(finalBmi < 18.5){
+document.bmiForm.meaning.value = "You are too thin."
+}
+if(finalBmi > 18.5 && finalBmi < 25){
+document.bmiForm.meaning.value = "You are healthy."
+}
+if(finalBmi > 25){
+document.bmiForm.meaning.value = "You have overweight."
+}
+}
+else{
+alert("Please Fill in everything correctly")
+}
+}
+//-->
+</script>
+<script language="JavaScript">
+<!--
+function calculateRisk(event) {
+  event.preventDefault();
+var gender = parseInt(document.riskForm.gender.value)
+var age = parseInt(document.riskForm.age.value)
+var race = parseInt(document.riskForm.race.value)
+var hyper = parseInt(document.riskForm.hyper.value)
+var bmi = parseInt(document.riskForm.bmi.value)
+var diabetic = parseInt(document.riskForm.diabetic.value)
+var smoke = parseInt(document.riskForm.smoke.value)
+
+var total = gender+age+race+hyper+bmi+diabetic+smoke
+document.riskForm.estimate.value = total
+
+if(gender >= 0 && age >= 0 && race >= 0 && hyper >= 0 && bmi >= 0 && diabetic >= 0 && smoke >= 0){
+  if(total <= 4){
+  document.riskForm.meaning.value = " Your Cardiac Risk is Low"
+  }
+  if(total > 4 && total <= 9){
+  document.riskForm.meaning.value = " Your Cardiac Risk is Medium"
+  }
+  if(total > 9 && total <= 12){
+  document.riskForm.meaning.value = " Your Cardiac Risk is High"
+  }
+  if(total > 12 && total <= 15){
+  document.riskForm.meaning.value = " You Are In Danger"
+  }
+}
+else{
+alert("Please Fill in everything correctly")
+  }
+}
+</script>
+<style type="text/css">
+ 
+#share-buttons img {
+width: 50px;
+padding: 5px;
+border: 0;
+box-shadow: 0;
+display: inline;
+}
+ 
+</style>
+<style type="text/css">
+      .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+    .error-template {padding: 40px 15px;text-align: center;}
+.error-actions {margin-top:15px;margin-bottom:15px;}
+.error-actions .btn { margin-right:10px; }
+    #img-upload{
+        width: 100%;
+    }
+</style>
+<script type="text/javascript">
+  $(document).ready( function() {
+      $(document).on('change', '.btn-file :file', function() {
+    var input = $(this),
+      label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [label]);
+    });
+    $('.btn-file :file').on('fileselect', function(event, label) {
+        
+        var input = $(this).parents('.input-group').find(':text'),
+            log = label;
+        
+        if( input.length ) {
+            input.val(log);
+        } else {
+            if( log ) alert(log);
+        }
+      
+    });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#img-upload').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#imgInp").change(function(){
+        readURL(this);
+    });   
+  });
+</script>
 
 
     <!--
@@ -24,6 +180,7 @@
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
 
+
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/font-awesome.css">
@@ -38,7 +195,95 @@
     <link rel="stylesheet" href="/styles/swipebox.css">
     <link rel="stylesheet" href="/styles/upload.css">
     <!--STYLES END-->
+
   </head>
+  <!--start-header-->
+  <div class="header" id="home">
+    <div class="container">
+      <div class="head">
+      <nav class= "navbar-fixed-top ">
+        <a href="/"><img src="/images/gidimed3.jpg" alt="GidiMed" /></a>
+
+      </nav>
+      <nav class="navbar navbar-fixed-top">
+      <div class="navigation">
+         <span class="menu"></span> 
+          <ul class="navig">
+
+
+          <% if (!session.authenticated) { %>
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+          <ul id="login-dp" class="dropdown-menu">
+            <li>
+               <div class="row">
+                  <div class="col-md-12">
+                     <form class="form" role="form"  method="post" action="/session/create" accept-charset="UTF-8" id="login-nav">
+                        <div class="form-group">
+                           <label class="sr-only" for="email">Email address</label>
+                           <input type="email" class="form-control" name="email" id= "email" placeholder="Email address" required>
+                        </div>
+                        <div class="form-group">
+                           <label class="sr-only" for="password">Password</label>
+                           <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                           <div class="help-block text-right"><a href="#">Forget the password ?</a></div>
+                        </div>
+                        <div class="form-group">
+                           <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                        </div>
+                        <div class="checkbox">
+                           <label>
+                           <input type="checkbox"> keep me logged-in
+                           </label>
+                        </div>
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                     </form>
+                  </div>
+                  <div class="bottom text-center">
+                    New here ? <a href="/user/new"><b>Join Us</b></a>
+                  </div>
+               </div>
+            </li>
+          </ul>
+        </li>
+        <% } %>
+
+        <% if (session.authenticated) { %>
+        
+          <li><a href="/user/show/<%= session.User.id %>"  class="active"><%= session.User.name %></a></li>
+        <% } %>
+        <% if ( session.authenticated && session.User.admin) { %>
+          <li><a href="/user" > User Administration </a></li>
+          <!-- <li><a href="/article"  class="active"> Articles </a></li> -->
+          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Articles</b> <span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="/article">View Articles</a></li>
+          <li><a href="/article/newArticle">Add Article</a></li>
+          
+        </ul>
+      </li>
+        <% } %>
+            <li><a href="/"  >Home</a></li>
+            <li><a href="#blog" class="scroll">Forum</a></li>
+            <li><a href="#get" class="scroll">Get In Touch</a></li>
+
+            <% if ( session.authenticated ) { %>
+          <li><a href="/session/destroy"  class=""> Sign Out </a></li>
+        <% } %>
+    
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+
+      </div>
+      </nav>
+        <div class="clearfix"></div>
+      </div>
+      </div>
+    </div> 
+    <!-- Header Ends -->
 
   <body>
     <%- body %>
@@ -50,12 +295,13 @@
           <ul>
             <li><a href="https://facebook.com/healthione.initiative"><span class="fb"> </span></a></li>
             <li><a href="https://twitter.com/@Healthi_One"><span class="t"> </span></a></li>
+            
             <!-- <li><a href="#"><span class="g"> </span></a></li>
             <li><a href="#"><span class="in"> </span></a></li> -->
           </ul>
         </div>
         <div class="col-md-6 footer-left">
-          <p>Developed by <a href="mailto:?Subject=Developer Needed &amp;Body=I%20saw%20this%20from%20HealthiOne%20and%20contacted%20you!%20" > BenNetworks </a>, Design by <a href=" https://w3layouts.com" > W3Layouts </a> </p>
+          <p>Developed by <a href="mailto:?Subject=Developer Needed &amp;Body=I%20saw%20this%20from%20HealthiOne%20and%20contacted%20you!%20" >BenNetworks </a>, A HealthiOne Initiative </p>
         </div>
         <div class="clearfix"></div>
       </div>
