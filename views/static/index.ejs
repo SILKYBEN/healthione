@@ -460,35 +460,39 @@
 				<span> </span>
 			</div>
 			<div class="contact-bottom">
+			
 				<div class="col-md-6 contact-left">
 					<ul>
 						<li><span class="address"> </span>
-						<p>Contact Me For Address, 
-						   <label>HealthiOne, popsy, Road</label>
-                            Ibadan, Nigeria
+						<p>6,Bisi Oluwole crescent, 
+						   <label>Ota, Ogun State.</label>
+                             Nigeria
                         </p>
                         </li>
                         <li><span class="phone"> </span>
-						<p>(+234)8149240238</p>
+						<p>(+234)8174820792</p>
                         </li>
                         <li><span class="msg"> </span>
-						<p><a href="bennetworks@coolsite.com">bennetworks@coolsite.com</a></p>
+						<p><a href="#">gidimed@gmail.com</a></p>
                         </li>
 					</ul>
 				</div>
 				<div class="col-md-6 contact-right">
-					<input type="text" value="Your Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Name';}" />
-					<input type="text" value="Your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Email';}" />
-					<input type="text" value="Website" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Website';}" />
-					<textarea value="Message:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+					<form action="https://formspree.io/gidimed@gmail.com" method="POST">
+					<input type="text" name= "name" value="Your Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Name';}" />
+					<input type="text" name="email" value="Your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Email';}" />
+					<input type="text" name="title" value="Title" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Title';}" />
+					<textarea name="message" value="Message:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
 					 <div class="s-btn">
-						<form>
+						
 							<input type="submit" value="Send">
 							<input type="hidden" name="_csrf" value="<%= _csrf %>" />
-						</form>
-				     </div>	
+						
+				     </div>
+				     </form>	
 				</div>
 				<div class="clearfix"> </div>
+				
 			</div>
 		</div>
 	</div>
