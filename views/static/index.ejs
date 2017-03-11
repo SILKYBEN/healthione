@@ -35,8 +35,11 @@
 										<a href="/user/new" class="get">Sign-Up</a>
 									</div>
 									<div class="banner-left">
-										<a href="#premium" class="fut">Go Premium</a>
+										<a href="#" data-toggle="modal" data-target="#myModal">Go Premium </a>
 									</div>
+
+										
+
 									<div class="clearfix"> </div>
 								</div>
 								<% } %>
@@ -497,6 +500,73 @@
 		</div>
 	</div>
 	<!--contact-end-->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+					<h4 class="modal-title" id="myModalLabel"> Go Premium </h4>
+				</div>
+				<div class="modal-body">
+					<h4> Get Personalised Online Services via Chat With Health Experts on our database for #500 Per Session.</h4>
+					<div class="row">
+						<div class="col-md-8" >
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#" data-toggle="tab">Select Expert</a></li>
+							</ul>
+							<!-- Tab panes -->
+							<div class="tab-content">
+								<div class="tab-pane active">
+									<form role="form" action="https://formspree.io/gidimed@gmail.com" method="POST" class="form-horizontal" >
+										<div class="form-group">
+              								<label for="name" class="cols-sm-2 control-label">Your Name</label>
+              								<div class="cols-sm-10">
+                								<div class="input-group">
+                  										<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                  										<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Full Name"/>
+                								</div>
+              								</div>
+            							</div>
+            							<div class="form-group">
+              								<label for="phone" class="cols-sm-2 control-label">Phone Number</label>
+              								<div class="cols-sm-10">
+               									<div class="input-group">
+                  										<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+                  										<input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your phone Number"/>
+               									</div>
+              								</div>
+            							</div>
+            
+              
+										<label class="radio"><input type="radio" name="expert" value="Medical Doctor"> Medical Doctor </label>
+		                				<label class="radio"><input type="radio" name="expert" value="Dentist"> Dentist </label>
+		                				<label class="radio"><input type="radio" name="expert" value="Pharmacist"> Pharmacist </label>
+		                				<label class="radio"><input type="radio" name="expert" value="Physiotherapist"> Physiotherapist </label>
+		                				<label class="radio"><input type="radio" name="expert" value="Dietitian"> Dietitian/Nutritionist </label>
+		                				<label class="radio"><input type="radio" name="expert" value="Public Health"> Public Health Pros </label>
+																	                                        
+								<!-- </div> -->
+
+																	                                  
+							<!-- </div> -->
+																	                                
+									<div class="row">
+											<div class="col-sm-2"></div>
+											<div class="col-sm-10">
+													<button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+											</div>
+									</div>
+									<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
 				 
 </body>
 </html>

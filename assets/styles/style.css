@@ -2307,6 +2307,8 @@ h3.sngl {
 .banner-left a {
   	font-size: 25px;
   	padding: 5px 53px;
+    background: green;
+    border: 2px solid;
 }
 .banner-main {
   	margin-top: 20%;
@@ -2613,6 +2615,8 @@ ul.navig li a {
   	font-size: 24px;
   	padding: 4px 44px;
   	margin: 0 10px;
+    background: green;
+    border: 2px solid;
 }
 .banner {
   	min-height: 500px;
