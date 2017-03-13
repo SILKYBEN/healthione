@@ -435,7 +435,7 @@
 			<div class="blog-bottom">
 			<% _.each(article, function(article) { %>
 				<div class="col-md-4 blog-left">
-					<a href="/article/singleArticle/<%= article.id %>" ><img src="images/<%= article.imageName %>" alt="" /></a>
+					<a href="/article/singleArticle/<%= article.id %>" ><img src="/images/<%= article.imageName %>" alt="" /></a>
 					<div class="blog-text">
 						<a href=" /article/singleArticle/<%= article.id %>" ><h4><%= article.title %></h4></a>
 						<span>by <a href="#"><%= article.nick %></a>  |  <%= article.dateCreated %></span>

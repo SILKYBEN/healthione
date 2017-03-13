@@ -39,6 +39,7 @@ var jsFilesToInject = [
   'js/jquery-1.11.0.min.js',
   
   'js/bootstrap.js',
+  'js/validator.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
