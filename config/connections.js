@@ -23,16 +23,16 @@ module.exports.connections = {
 
   
 
-   // 'default':'benMongodbServer',
+   'default':'benMongodbServer',
 
-   //      benMongodbServer:{
-   //      adapter:'sails-mongo',
-   //      module:'sails-mongo',
+        benMongodbServer:{
+        adapter:'sails-mongo',
+        module:'sails-mongo',
 
-   //      url: process.env.DB_URL,
+        url: process.env.DB_URL,
 
-   //      schema    : true
-   //      }
+        schema    : true
+        }
 
 
 
@@ -45,9 +45,9 @@ module.exports.connections = {
   * Installed by default.                                                    *
   *                                                                          *
   ***************************************************************************/
-  localDiskDb: {
-    adapter: 'sails-disk'
-  }
+  // localDiskDb: {
+  //   adapter: 'sails-disk'
+  // }
 
   // /***************************************************************************
   // *                                                                          *
