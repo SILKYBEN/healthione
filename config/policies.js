@@ -44,6 +44,10 @@ module.exports.policies = {
     edit : "flash",
     update : "flash",
     '*' : "admin" 
+   },
+   blog : {
+    'index' : "admin"
+     
    }
 
   /***************************************************************************

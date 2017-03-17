@@ -45,13 +45,19 @@ body a{
 h1,h2,h3,h4,h5,h6{
 	margin:0;			   
 }
+
 p {
 	margin:0;
-  white-space: nowrap;
+  
+  display: block;
+  
   overflow: hidden;
 }
 .overflow-ellipsis {
   text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 300px;
+
 }
 .overflow-visible {
   white-space: initial;
@@ -1692,14 +1698,18 @@ p.m_5 {
 }
 .blog-bottom{
 	margin-top:6%;
+
 }
 .blog-left img{
 	width:100%;
+  height: 200px;
   
 }
 .blog-text {
   	background: #fff;
   	padding: 1.5em 1.5em;
+    height: 200px;
+    overflow: hidden;
 }
 .blog-text h4 {
   	color: #282828;
@@ -1732,6 +1742,7 @@ p.m_5 {
   	font-weight: 400;
   	line-height: 1.6em;
   	margin-top: 1em;
+
 }
 /*--blog-ends*/
 /*--single-starts*/

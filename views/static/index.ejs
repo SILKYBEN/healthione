@@ -408,7 +408,7 @@
 						<a href="/blog/askExpert" ><h3><%= blog.title %></h3></a>
 						<br>
 						<span>by <a href="#"><%= blog.nick %></a>  |  <%= blog.dateCreated %></span>
-						<p class="overflow-ellipsis"> <%= blog.description %> </p>
+						<p class="overflow-ellipsis"> <%- blog.description %> </p>
 						<br><br>
 						<a href="/article">Read more >></a>
 					</div>
@@ -432,6 +432,7 @@
 				<h3>Articles</h3>
 				<span></span>
 			</div>
+			<div class="center-block">
 			<div class="blog-bottom">
 			<% _.each(article, function(article) { %>
 				<div class="col-md-4 blog-left">
@@ -439,11 +440,16 @@
 					<div class="blog-text">
 						<a href=" /article/singleArticle/<%= article.id %>" ><h4><%= article.title %></h4></a>
 						<span>by <a href="#"><%= article.nick %></a>  |  <%= article.dateCreated %></span>
-						<p class="overflow-ellipsis"><%= article.description %></p>
+						<p class="overflow-ellipsis"> <%- article.description %> </p>
+
 					</div>
+					<br>
+						<a href="/article/singleArticle/<%= article.id %>"><b>Read more >></b></a>
+
 				</div>
 				<% }) %>
 				<div class="clearfix"></div>
+			</div>
 			</div>
 		</div>
 	</div>

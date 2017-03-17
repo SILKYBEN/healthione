@@ -250,9 +250,9 @@ display: inline;
             </li>
           </ul>
         </li>
-        <% } %>
+        <% } else if (session.authenticated) { %>
 
-        <% if (session.authenticated) { %>
+        
         
           <li><a href="/user/show/<%= session.User.id %>"  class="active"><%= session.User.name %></a></li>
         <% } %>
