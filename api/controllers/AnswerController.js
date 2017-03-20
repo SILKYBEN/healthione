@@ -17,7 +17,7 @@ module.exports = {
 						if (err) return res.negotiate(err);
 
 						// console.log('owner:',owner);
-						console.log('Answer:',answer);
+						// console.log('Answer:',answer);
 						Blog.find({
 								id:req.session.Blog.id 
 							}).populate('answers')
@@ -31,9 +31,9 @@ module.exports = {
 							req.session.Blog=blog;
 
 							req.session.Answer = answer;
-							console.log('Answer:',answer);
-							console.log('Answer session:',req.session.Answer);
-							console.log('Blog session:',req.session.Blog);
+							// console.log('Answer:',answer);
+							// console.log('Answer session:',req.session.Answer);
+							// console.log('Blog session:',req.session.Blog);
 
 						res.view({
 							blog:blog,
@@ -106,14 +106,14 @@ module.exports = {
 									}).populate('blogs').exec(function (err, user){
 
 										if (err) return res.negotiate(err);
-										console.log('user: ', user);
+										// console.log('user: ', user);
 
 									Blog.findOne({ 
 										id: req.session.Blog.id 
 									}).populate('answers').exec(function (err, blog){
 
 										if (err) return res.negotiate(err);
-										console.log('blog: ', blog);
+										// console.log('blog: ', blog);
 
 									
 
@@ -153,7 +153,7 @@ module.exports = {
 		      if (!blog) return res.notFound();
 
 			Answer.update(req.param('id'),req.params.all(),function answerUpdated(err){
-				console.log(req.params.all());
+				// console.log(req.params.all());
 				if (err){
 					console.log(err);
 				 return res.redirect('/blog/singleBlog/'+ req.session.Blog.id); 

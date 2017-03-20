@@ -45,10 +45,10 @@ module.exports = {
 
 
 
-											console.log('articleAnswer: ', articleAnswer);
-											console.log('single creator nick:',article.creator.nick);
+											// console.log('articleAnswer: ', articleAnswer);
+											// console.log('single creator nick:',article.creator.nick);
 
-											console.log('single answers:',article.articleAnswers);
+											// console.log('single answers:',article.articleAnswers);
 
 											// return answer;
 
@@ -79,17 +79,17 @@ module.exports = {
 	    //	Call to /upload via GET is error
 
 	    var uploadFile = req.file('uploadFile');
-	    console.log('First Step: ', uploadFile);
+	    // console.log('First Step: ', uploadFile);
 
-	    uploadFile.upload({ dirname: '../../assets/images', saveAs: function(file, cb) { cb(null, file.filename);
-  }, }, function onUploadComplete(err, files) {
-	        //	Files will not be uploaded to .tmp/uploads
+	    uploadFile.upload({saveAs: function(file, cb) { cb(null, file.filename);
+  }, adapter: require('skipper-s3'), key: 'AKIAJZ77RCYSHPXOMTUQ', secret: '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', bucket: 'gidimed'}, function onUploadComplete(err, files) {
+	        //	Files will not be uploaded to amazon
 
 	        if (err) return res.serverError(err);
 	         if (files.length === 0){
 		      return res.badRequest('No file was uploaded');
 		    }
-		    console.log('2nd Step : ', files);
+		    // console.log('2nd Step : ', files);
 		    // avatarUrl: require('util').format('%s/assets/images/%s', sails.getBaseUrl(), req.session.User );
 		    imageName: req.param('files[0].filename');
 
@@ -135,8 +135,8 @@ module.exports = {
 			      	return res.negotiate(err); 
 			      } 
 
-			       console.log(req.session.User.avatarFd);
-			       console.log(req.session.User.avatarName);
+			       // console.log(req.session.User.avatarFd);
+			       // console.log(req.session.User.avatarName);
 			       
 
 			      // return res.ok();
@@ -216,7 +216,7 @@ module.exports = {
 									}).populate('articles').exec(function (err, user){
 
 										if (err) return res.negotiate(err);
-										console.log('user: ', user);
+										// console.log('user: ', user);
 
 										Article.findOne({
 											id: createdArticle.id
@@ -224,7 +224,7 @@ module.exports = {
 
 											if (err) return res.negotiate(err);
 
-											console.log('Article: ', article);
+											// console.log('Article: ', article);
 											return res.redirect('/upload-file');
 											// res.json({id: createdArticle.id});
  

@@ -18,7 +18,7 @@ module.exports = {
 						if (err) return res.negotiate(err);
 
 						// console.log('owner:',owner);
-						console.log('articleAnswer:',articleAnswer);
+						// console.log('articleAnswer:',articleAnswer);
 						Article.find({
 								id:req.session.Article.id 
 							}).populate('articleAnswers')
@@ -36,9 +36,9 @@ module.exports = {
 							req.session.Article=article;
 
 							req.session.ArticleAnswer = articleAnswer;
-							console.log('articleAnswer:',articleAnswer);
-							console.log('ArticleAnswer session:',req.session.ArticleAnswer);
-							console.log('Article session:',req.session.Article);
+							// console.log('articleAnswer:',articleAnswer);
+							// console.log('ArticleAnswer session:',req.session.ArticleAnswer);
+							// console.log('Article session:',req.session.Article);
 
 						res.view({
 							article:article,

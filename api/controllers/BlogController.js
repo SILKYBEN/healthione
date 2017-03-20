@@ -26,9 +26,9 @@ module.exports = {
 
 			req.session.Blog = blog;
 
-			console.log('single Blog session:',blog);
-			console.log('single creator:',blog.creator.name);
-			console.log('single answers:',blog.answers.comment);
+			// console.log('single Blog session:',blog);
+			// console.log('single creator:',blog.creator.name);
+			// console.log('single answers:',blog.answers.comment);
 
 
 										Answer.find({
@@ -43,10 +43,10 @@ module.exports = {
 
 
 
-											console.log('answer: ', answer);
-											console.log('single creator nick:',blog.creator.nick);
+											// console.log('answer: ', answer);
+											// console.log('single creator nick:',blog.creator.nick);
 
-											console.log('single answers:',blog.answers);
+											// console.log('single answers:',blog.answers);
 
 											
  
@@ -76,7 +76,7 @@ module.exports = {
 			// req.session.authenticated=true;
 
 			req.session.Blog = blog;
-			console.log('blog own session:',blog);
+			// console.log('blog own session:',blog);
 
 				Answer.find({
 
@@ -90,10 +90,10 @@ module.exports = {
 
 
 
-											console.log('answer: ', answer);
+											// console.log('answer: ', answer);
 											// console.log('single creator nick:',blog.creator.nick);
 
-											console.log('single answers:',blog.answers);
+											// console.log('single answers:',blog.answers);
 
 											// return answer;
 
@@ -175,7 +175,7 @@ module.exports = {
 									}).populate('blogs').exec(function (err, user){
 
 										if (err) return res.negotiate(err);
-										console.log('user: ', user);
+										// console.log('user: ', user);
 
 										Blog.findOne({
 											id: createdBlog.id
