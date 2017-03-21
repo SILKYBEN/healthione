@@ -28,7 +28,7 @@
 					<h3 class="sngl"><%= blog.title %></h3>
 					<span>by <a href="#"><%= blog.nick %>&nbsp;|&nbsp;<%= blog.creator.gender %>&nbsp;|&nbsp;<%= blog.creator.age %></a> on <a href="#"> <%= blog.dateCreated %> </a> comments&nbsp;(<%= answer.length %>)</span>
 					
-					<h5><%= blog.description %> </h5>
+					<h5><%- blog.description %> </h5>
 
 					<div id="share-buttons">
 						<!-- WhatsApp  -->
@@ -90,7 +90,7 @@
 									<div class="cmts-main-right">
 									
 										<a href="#"><h5><%= answer.nick %></h5></a>
-										<p><%= answer.comment %></p>
+										<p><%- answer.comment %></p>
 										<div class="cmts">
 											<div class="col-md-6 cmnts-left">
 												<label><%= answer.dateCreated %></label>
@@ -133,7 +133,7 @@
 																	                                    </div>
 
 																	                                    <div class="col-sm-10">
-																	                                        <input type="text" class="form-control" name="comment" placeholder="<%= answer.comment %>" />
+																	                                        <input type="text" class="form-control" name="comment" placeholder="<%- answer.comment %>" />
 																	                                    </div>
 																	                                </div>
 																	                                
@@ -199,7 +199,7 @@
 																	                                    </div>
 
 																	                                    <div class="col-sm-10">
-																	                                        <input type="text" class="form-control" name="comment" placeholder="<%= answer.comment %>" />
+																	                                        <input type="text" class="form-control" name="comment" placeholder="<%- answer.comment %>" />
 																	                                    </div>
 																	                                </div>
 																	                                  <div class="form-group">
